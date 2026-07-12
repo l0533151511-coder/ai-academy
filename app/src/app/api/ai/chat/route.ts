@@ -1,5 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { createAnthropicClient, extractTextBlock, missingApiKeyResponse, apiCallErrorResponse } from "@/lib/api-routes/anthropic-helpers";
+import { logEvent } from "@/lib/atlasdesk/monitoring";
+import { estimateCallCost } from "@/lib/simulators/pricing";
 
 export const runtime = "nodejs";
 
@@ -33,6 +35,7 @@ export async function POST(req: NextRequest) {
   }
 
   const client = createAnthropicClient(apiKey);
+  const startedAt = Date.now();
 
   try {
     const response = await client.messages.create({
@@ -40,6 +43,15 @@ export async function POST(req: NextRequest) {
       max_tokens: maxTokens,
       system,
       messages,
+    });
+
+    logEvent({
+      route: "chat",
+      inputTokens: response.usage.input_tokens,
+      outputTokens: response.usage.output_tokens,
+      costUsd: estimateCallCost(response.usage.input_tokens, response.usage.output_tokens),
+      latencyMs: Date.now() - startedAt,
+      timestamp: Date.now(),
     });
 
     return NextResponse.json({

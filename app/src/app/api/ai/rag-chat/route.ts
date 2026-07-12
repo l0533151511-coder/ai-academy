@@ -2,6 +2,8 @@ import { NextRequest, NextResponse } from "next/server";
 import { HELP_ARTICLES } from "@/lib/atlasdesk/help-articles";
 import { embed, cosineSimilarity } from "@/lib/atlasdesk/embeddings";
 import { createAnthropicClient, extractTextBlock, missingApiKeyResponse } from "@/lib/api-routes/anthropic-helpers";
+import { logEvent } from "@/lib/atlasdesk/monitoring";
+import { estimateCallCost } from "@/lib/simulators/pricing";
 
 export const runtime = "nodejs";
 
@@ -42,6 +44,7 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: "no user message found" }, { status: 400 });
   }
 
+  const startedAt = Date.now();
   try {
     const articleTexts = HELP_ARTICLES.map((a) => `${a.title}: ${a.content}`);
     const [queryVec, ...articleVecs] = await embed([lastUserMessage.content, ...articleTexts], openaiKey);
@@ -65,6 +68,15 @@ export async function POST(req: NextRequest) {
       max_tokens: 1024,
       system: `${RAG_SYSTEM_PROMPT}\n\nמאמרי עזרה רלוונטיים:\n${contextBlock}`,
       messages: messages.map((m) => ({ role: m.role, content: m.content })),
+    });
+
+    logEvent({
+      route: "rag-chat",
+      inputTokens: response.usage.input_tokens,
+      outputTokens: response.usage.output_tokens,
+      costUsd: estimateCallCost(response.usage.input_tokens, response.usage.output_tokens),
+      latencyMs: Date.now() - startedAt,
+      timestamp: Date.now(),
     });
 
     return NextResponse.json({
