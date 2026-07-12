@@ -11,12 +11,26 @@ interface ToolLogEntry {
   result: string;
 }
 
+interface SourceEntry {
+  title: string;
+  similarity: number;
+}
+
 interface Msg {
   role: "user" | "assistant";
   content: string;
   usage?: { inputTokens: number; outputTokens: number };
   toolLog?: ToolLogEntry[];
+  sources?: SourceEntry[];
 }
+
+type ChatMode = "plain" | "tools" | "rag";
+
+const MODE_ENDPOINT: Record<ChatMode, string> = {
+  plain: "/api/ai/chat",
+  tools: "/api/ai/tool-chat",
+  rag: "/api/ai/rag-chat",
+};
 
 const STORAGE_KEY = "atlasdesk:conversation:v1";
 const WELCOME_MSG: Msg = {
@@ -36,7 +50,7 @@ export function SupportChat() {
   const [input, setInput] = React.useState("");
   const [loading, setLoading] = React.useState(false);
   const [devMode, setDevMode] = React.useState(false);
-  const [toolMode, setToolMode] = React.useState(false);
+  const [mode, setMode] = React.useState<ChatMode>("plain");
 
   React.useEffect(() => {
     try {
@@ -72,18 +86,24 @@ export function SupportChat() {
     setLoading(true);
 
     try {
-      const res = await fetch(toolMode ? "/api/ai/tool-chat" : "/api/ai/chat", {
+      const res = await fetch(MODE_ENDPOINT[mode], {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          system: toolMode ? ATLASDESK_TOOL_SYSTEM_PROMPT : ATLASDESK_SYSTEM_PROMPT,
+          system: mode === "tools" ? ATLASDESK_TOOL_SYSTEM_PROMPT : ATLASDESK_SYSTEM_PROMPT,
           messages: next.map((m) => ({ role: m.role, content: m.content })),
         }),
       });
       const data = await res.json();
       setMessages((m) => [
         ...m,
-        { role: "assistant", content: data.content, usage: data.usage, toolLog: data.toolLog },
+        {
+          role: "assistant",
+          content: data.content,
+          usage: data.usage,
+          toolLog: data.toolLog,
+          sources: data.sources,
+        },
       ]);
     } catch {
       setMessages((m) => [...m, { role: "assistant", content: "שגיאת רשת — נסה שוב." }]);
@@ -100,13 +120,22 @@ export function SupportChat() {
         </div>
         <div className="flex items-center gap-2">
           <button
-            onClick={() => setToolMode((t) => !t)}
+            onClick={() => setMode((m) => (m === "tools" ? "plain" : "tools"))}
             title="מפעיל כלי 'בדוק סטטוס פנייה' אמיתי (נסה: AD-1042, AD-2087, AD-3311)"
             className={`rounded-full border px-3 py-1 text-xs font-semibold transition ${
-              toolMode ? "border-primary bg-primary/10 text-primary" : "border-border text-muted"
+              mode === "tools" ? "border-primary bg-primary/10 text-primary" : "border-border text-muted"
             }`}
           >
             🔧 כלים מחוברים
+          </button>
+          <button
+            onClick={() => setMode((m) => (m === "rag" ? "plain" : "rag"))}
+            title="מפעיל RAG אמיתי — תשובות מבוססות מאמרי העזרה של AtlasDesk"
+            className={`rounded-full border px-3 py-1 text-xs font-semibold transition ${
+              mode === "rag" ? "border-primary bg-primary/10 text-primary" : "border-border text-muted"
+            }`}
+          >
+            📚 RAG מופעל
           </button>
           <button
             onClick={() => setDevMode((d) => !d)}
@@ -146,6 +175,21 @@ export function SupportChat() {
                     </p>
                   ))}
                 </div>
+              )}
+              {m.sources && m.sources.length > 0 && (
+                <div className="mt-1.5 space-y-1 border-t border-border/30 pt-1.5">
+                  <p className="text-[10px] font-semibold opacity-70">📚 מקורות:</p>
+                  {m.sources.map((s, si) => (
+                    <p key={si} className="text-[10px] opacity-70">
+                      {s.title} {devMode && `(similarity: ${s.similarity.toFixed(2)})`}
+                    </p>
+                  ))}
+                </div>
+              )}
+              {Array.isArray(m.sources) && m.sources.length === 0 && (
+                <p className="mt-1.5 border-t border-border/30 pt-1.5 text-[10px] italic opacity-60">
+                  לא נמצאו מאמרי עזרה רלוונטיים — התשובה לא מבוססת על מקור
+                </p>
               )}
               {devMode && m.usage && (
                 <p className="mt-1 border-t border-border/30 pt-1 text-[10px] opacity-70">

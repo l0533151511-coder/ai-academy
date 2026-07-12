@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { HELP_ARTICLES } from "@/lib/atlasdesk/help-articles";
+import { embed, cosineSimilarity } from "@/lib/atlasdesk/embeddings";
 
 export const runtime = "nodejs";
 
@@ -10,31 +11,6 @@ export const runtime = "nodejs";
  * מ-ANTHROPIC_API_KEY (אותה פילוסופיית graceful degradation: בלי מפתח, מוחזרת הודעה ברורה
  * ושאר האתר ממשיך לעבוד רגיל).
  */
-
-interface EmbeddingResponse {
-  data: { embedding: number[] }[];
-}
-
-function cosineSimilarity(a: number[], b: number[]): number {
-  let dot = 0, normA = 0, normB = 0;
-  for (let i = 0; i < a.length; i++) {
-    dot += a[i] * b[i];
-    normA += a[i] * a[i];
-    normB += b[i] * b[i];
-  }
-  return dot / (Math.sqrt(normA) * Math.sqrt(normB));
-}
-
-async function embed(texts: string[], apiKey: string): Promise<number[][]> {
-  const res = await fetch("https://api.openai.com/v1/embeddings", {
-    method: "POST",
-    headers: { "Content-Type": "application/json", Authorization: `Bearer ${apiKey}` },
-    body: JSON.stringify({ model: "text-embedding-3-small", input: texts }),
-  });
-  if (!res.ok) throw new Error(`OpenAI embeddings API error: ${res.status}`);
-  const data = (await res.json()) as EmbeddingResponse;
-  return data.data.map((d) => d.embedding);
-}
 
 export async function POST(req: NextRequest) {
   const apiKey = process.env.OPENAI_API_KEY;
