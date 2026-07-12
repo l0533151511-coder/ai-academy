@@ -2,12 +2,7 @@
 
 import * as React from "react";
 import { estimateRealTokenCount } from "@/lib/simulators/tokenizer";
-
-const MODELS = [
-  { id: "haiku", name: "Claude Haiku (מהיר וזול)", inputPer1M: 0.8, outputPer1M: 4 },
-  { id: "sonnet", name: "Claude Sonnet (מאוזן)", inputPer1M: 3, outputPer1M: 15 },
-  { id: "opus", name: "Claude Opus (החזק ביותר)", inputPer1M: 15, outputPer1M: 75 },
-];
+import { CLAUDE_MODELS as MODELS } from "@/lib/simulators/pricing";
 
 /** Token Cost Calculator — רכיב כללי לשימוש חוזר בכל שיעור שנוגע בעלויות API. */
 export function TokenCostCalculator() {

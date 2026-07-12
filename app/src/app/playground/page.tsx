@@ -9,7 +9,7 @@ const PLAYGROUNDS = [
   { href: "/playground/agent", icon: Bot, title: "Agent Playground", desc: "בנה סוכן AI ובדוק לולאת פעולה" },
 ];
 
-export const metadata = { title: "מעבדות | אקדמיית AI" };
+export const metadata = { title: "מעבדות" };
 
 export default function PlaygroundIndex() {
   return (

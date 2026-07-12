@@ -1,4 +1,4 @@
-export const metadata = { title: "MCP Playground | אקדמיית AI" };
+export const metadata = { title: "MCP Playground" };
 
 export default function Page() {
   return (

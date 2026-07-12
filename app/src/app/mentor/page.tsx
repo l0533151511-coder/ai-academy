@@ -1,4 +1,4 @@
-export const metadata = { title: "AI Mentor | אקדמיית AI" };
+export const metadata = { title: "AI Mentor" };
 
 export default function MentorPage() {
   return (

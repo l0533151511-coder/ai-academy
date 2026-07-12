@@ -1,4 +1,4 @@
-export const metadata = { title: "פרויקט: מחשב צעצוע ויזואלי | אקדמיית AI" };
+export const metadata = { title: "פרויקט: מחשב צעצוע ויזואלי" };
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return children;

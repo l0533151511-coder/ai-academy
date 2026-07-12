@@ -1,4 +1,4 @@
-export const metadata = { title: "Prompt Playground | אקדמיית AI" };
+export const metadata = { title: "Prompt Playground" };
 
 export default function Page() {
   return (

@@ -204,13 +204,14 @@
 
 ## טראק 6 — הנדסת Prompt ופיתוח בעזרת AI
 
-### מודול 6.1 — הנדסת Prompt מקצועית ⬜
-1. אנטומיה של פרומפט טוב: context, task, format, constraints 🟢 30 דק'
-2. Zero-shot מול Few-shot prompting 🟡 25 דק'
-3. Chain-of-Thought — לגרום למודל "לחשוב בקול" 🟡 30 דק'
-4. הימנעות מהזיות: grounding, citations, self-verification 🔴 35 דק'
-5. System prompts ועיצוב "אישיות" למודל 🟡 25 דק'
-6. **פרויקט מודול:** ספריית פרומפטים לשימוש חוזר עם A/B testing 🔴 60 דק'
+### מודול 6.1 — הנדסת Prompt מקצועית ✅ (בנוי במלואו — 4/4 שיעורים)
+1. ✅ אנטומיה של פרומפט מקצועי — עם **Prompt Playground** חדש (קריאה אמיתית ל-Claude API, טוקנים/עלות אמיתיים מהתשובה) 🟢 30 דק'
+2. ✅ Few-shot Prompting ו-Chain-of-Thought — השוואה חיה zero-shot מול few-shot 🟡 30 דק'
+3. ✅ מניעת הזיות: Grounding ו-Self-Verification 🔴 25 דק'
+4. ✅ **פרויקט מודול — 🏆 AtlasDesk v0.1**: מנוע השיחה הבסיסי של הפרויקט המתמשך (`/atlasdesk`), עם מצב מפתח שמציג עלות/טוקנים אמיתיים לכל הודעה 🔴 45 דק'
+
+הערה: "ספריית פרומפטים עם A/B testing" ו"קפסטון #7 — Prompt Playground" מהתכנון המקורי מוזגו לכדי
+מודול אחד ממוקד יותר, בהתאם למעבר ל"פרויקט מתמשך אחד" (ראה [12-continuous-capstone.md](12-continuous-capstone.md)). Prompt Playground עצמו נבנה כרכיב פלטפורמה כללי (`components/playground/prompt-playground.tsx`), לא כפרויקט חד-פעמי.
 
 ### מודול 6.2 — Claude Code ופיתוח AI-assisted ⬜
 1. מה זה agentic coding ולמה זה שונה מ-autocomplete 🟡 25 דק'

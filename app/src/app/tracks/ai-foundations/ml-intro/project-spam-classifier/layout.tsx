@@ -1,4 +1,4 @@
-export const metadata = { title: "פרויקט: מסווג ספאם אינטראקטיבי | אקדמיית AI" };
+export const metadata = { title: "פרויקט: מסווג ספאם אינטראקטיבי" };
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return children;

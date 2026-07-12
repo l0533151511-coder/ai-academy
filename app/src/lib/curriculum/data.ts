@@ -468,7 +468,62 @@ export const TRACKS: TrackSummary[] = [
     goal: "לכתוב פרומפטים מקצועיים ולפתח עם Claude Code",
     color: "#a78bfa",
     modules: [
-      { slug: "prompt-engineering", title: "הנדסת Prompt מקצועית", description: "few-shot, chain-of-thought", projectBrief: "ספריית פרומפטים עם A/B testing", lessons: [] },
+      {
+        slug: "prompt-engineering",
+        title: "הנדסת Prompt מקצועית",
+        description: "אנטומיית פרומפט, few-shot, chain-of-thought, system prompts",
+        projectBrief: "AtlasDesk שלב 1: מנוע השיחה הבסיסי",
+        lessons: [
+          {
+            slug: "prompt-anatomy",
+            title: "אנטומיה של פרומפט מקצועי",
+            objectives: [
+              "להבין את רכיבי הפרומפט: context, task, format, constraints",
+              "להבין את ההבדל בין system prompt להודעת משתמש",
+              "לכתוב ולהריץ פרומפטים אמיתיים במעבדה אינטראקטיבית",
+            ],
+            estMinutes: 30,
+            difficulty: "מתחיל",
+            prerequisites: ["פרויקט מודול: מחשבון טוקנים ועלויות"],
+          },
+          {
+            slug: "few-shot-chain-of-thought",
+            title: "Few-shot Prompting ו-Chain-of-Thought",
+            objectives: [
+              "להבין את ההבדל בין zero-shot, few-shot ו-CoT",
+              "לראות איך דוגמאות בפרומפט משפרות עקביות תשובות",
+              "להבין מתי chain-of-thought עוזר ומתי הוא רק מבזבז טוקנים",
+            ],
+            estMinutes: 30,
+            difficulty: "בינוני",
+            prerequisites: ["prompt-anatomy"],
+          },
+          {
+            slug: "grounding-hallucinations",
+            title: "מניעת הזיות: Grounding ו-Self-Verification",
+            objectives: [
+              "להבין טכניקות לביסוס תשובות בעובדות (grounding)",
+              "להבין איך לעודד את המודל להודות באי-ודאות במקום להמציא",
+              "להשוות תשובה עם ובלי טכניקות grounding על אותה שאלה",
+            ],
+            estMinutes: 25,
+            difficulty: "בינוני",
+            prerequisites: ["few-shot-chain-of-thought"],
+          },
+          {
+            slug: "project-atlasdesk-conversation-engine",
+            title: "פרויקט מודול: AtlasDesk — מנוע השיחה הבסיסי",
+            objectives: [
+              "לבנות את הליבה הראשונה של AtlasDesk — מערכת תמיכת לקוחות AI אמיתית",
+              "לחבר system prompt מובנה + היסטוריית שיחה אמיתית מול Claude API",
+              "להבין את שיקולי ההנדסה של הפרויקט הראשון בפלטפורמה מסחרית אמיתית",
+            ],
+            estMinutes: 45,
+            difficulty: "בינוני",
+            prerequisites: ["grounding-hallucinations"],
+          },
+        ],
+      },
       { slug: "claude-code-dev", title: "Claude Code ופיתוח AI-assisted", description: "agentic coding, workflows", projectBrief: "אוטומציית תהליך פיתוח אמיתי", lessons: [] },
     ],
   },

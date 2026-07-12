@@ -1,4 +1,4 @@
-export const metadata = { title: "Agent Playground | אקדמיית AI" };
+export const metadata = { title: "Agent Playground" };
 
 export default function Page() {
   return (

@@ -1,4 +1,4 @@
-export const metadata = { title: "RAG Playground | אקדמיית AI" };
+export const metadata = { title: "RAG Playground" };
 
 export default function Page() {
   return (
