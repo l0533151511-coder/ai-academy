@@ -1,6 +1,9 @@
 import Link from "next/link";
 import { ArrowLeft, Sparkles, Layers, Bot, Trophy } from "lucide-react";
-import { TRACKS, totalLessons } from "@/lib/curriculum/data";
+import { TRACKS, totalLessons, allLessonsFlat } from "@/lib/curriculum/data";
+
+// קישור לשיעור הראשון האמיתי (אין עמוד ברמת מודול — היה מוביל ל-404)
+const FIRST_LESSON_HREF = allLessonsFlat()[0]?.href ?? "/tracks";
 
 const STATS = [
   { label: "מסלולי לימוד", value: TRACKS.length.toString() },
@@ -45,7 +48,7 @@ export default function Home() {
         </p>
         <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
           <Link
-            href="/tracks/foundations/computer-basics"
+            href={FIRST_LESSON_HREF}
             className="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 font-semibold text-primary-foreground transition hover:opacity-90"
           >
             התחל את השיעור הראשון <ArrowLeft size={18} />
