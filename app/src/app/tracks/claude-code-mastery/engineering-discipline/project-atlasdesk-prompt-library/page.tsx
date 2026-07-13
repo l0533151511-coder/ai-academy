@@ -55,6 +55,40 @@ const QUIZ: QuizQuestion[] = [
 const SECTIONS: LessonSection[] = [
   { id: "slides", label: "מצגת: הפרויקט המסכם של הטראק", content: <SlideDeck slides={SLIDES} /> },
   {
+    id: "rationale",
+    label: "למה הפרויקט הזה, ומה ה-trade-off",
+    content: (
+      <div className="space-y-4 text-sm">
+        <div className="rounded-xl border border-border bg-card p-4">
+          <p className="mb-1 font-bold text-primary">הנימוק ההנדסי (why this project)</p>
+          <p className="text-muted">
+            כל מה שלמדת לאורך 6 המודולים חי כרגע &quot;בראש שלך&quot; ובהיסטוריית שיחות מפוזרת. הפרויקט הזה
+            הופך את הידע הסמוי הזה לנכס מפורש: prompt-library ו-CONTRIBUTING.md שכל מפתח עתידי
+            (כולל אתה בעוד חצי שנה) יכול לפתוח ולעבוד לפיו מהיום הראשון — בלי לגלות מחדש את מה שכבר עבד.
+          </p>
+        </div>
+        <div className="rounded-xl border border-border bg-card p-4">
+          <p className="mb-1 font-bold text-primary">ה-trade-off המרכזי: כמה מבנה לכפות</p>
+          <p className="text-muted">
+            playbook קשיח מדי (עשרות תבניות עם כללים מדוקדקים) נהיה נטל שאיש לא מתחזק, וחוזרים לניסוח
+            אד-הוק. playbook רופף מדי (2-3 שורות כלליות) לא חוסך כלום. הנקודה המתוקה: 5-8 תבניות
+            שבאמת חזרו לאורך הטראק, כל אחת עם דוגמה אמיתית — מספיק כדי ליישר איכות, מעט מספיק כדי
+            שיתוחזק בפועל. עדיף playbook קטן שחי מאשר גדול שמת.
+          </p>
+        </div>
+        <div className="rounded-xl border border-success/30 bg-success/5 p-4">
+          <p className="mb-1 font-bold text-success">מה נחשב הצלחה</p>
+          <ul className="space-y-1.5 text-muted">
+            <li>prompt-library.md עם 5-8 תבניות אמיתיות מהטראק — כל אחת עם שם, מתי-להשתמש, טקסט מדויק ודוגמה.</li>
+            <li>CONTRIBUTING.md שמפתח חדש (או Claude Code בסשן נקי) יכול לקרוא ולהתחיל לעבוד נכון בלי הסבר נוסף.</li>
+            <li>שני הקבצים תואמים למוסכמות התיעוד הקיימות בפרויקט (docs/), ונמצאים בגיט כך שאפשר לגרסן אותם.</li>
+            <li>מבחן-האמת: תפתח סשן חדש, תיתן לסוכן רק את שני הקבצים, ותראה שהוא מתחיל לעבוד ברמת האיכות שהגעת אליה בסוף הטראק.</li>
+          </ul>
+        </div>
+      </div>
+    ),
+  },
+  {
     id: "engineering",
     label: "לחשוב כמו מהנדס AI",
     content: (

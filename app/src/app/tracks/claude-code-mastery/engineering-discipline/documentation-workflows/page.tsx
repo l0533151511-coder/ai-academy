@@ -1,5 +1,6 @@
 "use client";
 
+import { AlertTriangle, BookCheck } from "lucide-react";
 import { LessonShell, type LessonMeta, type LessonSection } from "@/components/lesson/lesson-shell";
 import { SlideDeck, type Slide } from "@/components/slides/slide-deck";
 import { PromptComparisonLab } from "@/components/comparisons/prompt-comparison-lab";
@@ -98,8 +99,39 @@ const SECTIONS: LessonSection[] = [
         whenNotTo="לקוד ניסיוני שעדיין משתנה כל הזמן — תיעוד מוקדם מדי עלול להתיישן מיד ולבזבז זמן."
         commonMistakes="לכתוב תיעוד ולשכוח לעדכן אותו כשהקוד משתנה — תיעוד שקרי (שמתאר משהו שכבר לא נכון) גרוע מהיעדר תיעוד."
         cost="תיעוד תוך-כדי עולה כמה דקות נוספות בכל שלב — חוסך שעות של 'ניסיון לזכור למה עשינו ככה' מאוחר יותר."
+        maintenance="תיעוד הוא נכס רק כל עוד הוא נכון: כל שינוי בקוד חייב לגרור עדכון של התיעוד שמתאר אותו (הערת קוד, CLAUDE.md, README). תיעוד שלא מתוחזק מתיישן בשקט והופך למלכודת — מישהו יבנה על הנחה שכבר לא נכונה. כלל מעשי: אם commit משנה התנהגות שמתועדת, עדכון התיעוד הוא חלק מאותו commit, לא משימה 'לאחר כך'."
         realWorld="docs/13-atlasdesk-features.md באקדמיה מתעדכן אחרי כל מודול (לא בסוף הטראק) — בדיוק הדפוס שהשיעור הזה מלמד."
       />
+    ),
+  },
+  {
+    id: "mistakes",
+    label: "מה שובר בפרודקשן מול איך מקצוענים עושים",
+    content: (
+      <div className="grid gap-4 sm:grid-cols-2">
+        <div className="rounded-xl border border-danger/30 bg-danger/5 p-4">
+          <p className="mb-2 flex items-center gap-2 font-bold text-danger">
+            <AlertTriangle size={16} /> מה שובר תיעוד בפועל
+          </p>
+          <ul className="space-y-1.5 text-sm">
+            <li>לכתוב תיעוד בדיעבד, חודשים אחרי ההחלטה — הניואנסים כבר התאדו מהזיכרון.</li>
+            <li>לשנות קוד ולשכוח לעדכן את התיעוד — תיעוד שקרי גרוע מהיעדר תיעוד.</li>
+            <li>לנפח את CLAUDE.md ל&apos;קיר טקסט&apos; שנטען בכל סשן — עלות טוקנים בלי ערך.</li>
+            <li>להפוך README לרשימת TODO — מבלבל בין תיעוד לבן אדם לניהול משימות.</li>
+          </ul>
+        </div>
+        <div className="rounded-xl border border-success/30 bg-success/5 p-4">
+          <p className="mb-2 flex items-center gap-2 font-bold text-success">
+            <BookCheck size={16} /> איך מקצוענים עושים זאת
+          </p>
+          <ul className="space-y-1.5 text-sm">
+            <li>מתעדים את ה&apos;למה&apos; ברגע ההחלטה — הערת קוד קצרה במקום פסקת README מאוחרת.</li>
+            <li>עדכון תיעוד הוא חלק מאותו commit ששינה את ההתנהגות, לא משימה נפרדת.</li>
+            <li>שומרים CLAUDE.md תמציתי ופעולתי; פרטים מורחבים הולכים ל-docs לבני אדם.</li>
+            <li>מפרידים קהלים: CLAUDE.md ל-AI, README/docs לבן אדם — לכל אחד מטרה ברורה.</li>
+          </ul>
+        </div>
+      </div>
     ),
   },
   { id: "quiz", label: "בוחן ידע", content: <QuizEngine questions={QUIZ} /> },
@@ -150,6 +182,11 @@ const SECTIONS: LessonSection[] = [
         <p className="mt-1 text-muted">
           עבור על README של פרויקט שלך וחפש קטע שאתה חושד שהתיישן (לא תואם את הקוד הנוכחי).
           עדכן אותו עכשיו, לא &quot;כשיהיה זמן&quot;.
+        </p>
+        <p className="mt-3 font-semibold">מוביל לשיעור הבא:</p>
+        <p className="mt-1 text-muted">
+          תיעוד טוב הוא ה&quot;זיכרון החיצוני&quot; של הפרויקט. בשיעור הבא, &quot;ניהול סשן ושימור Context&quot;,
+          נראה איך אותו תיעוד מאפשר לסשן Claude Code חדש להמשיך בדיוק מאיפה שהפסקת — בלי לאבד הקשר.
         </p>
       </div>
     ),
