@@ -1,6 +1,6 @@
 "use client";
 
-import { Trophy, Cpu } from "lucide-react";
+import { Trophy, Cpu, CheckCircle2, Scale } from "lucide-react";
 import { LessonShell, type LessonMeta, type LessonSection } from "@/components/lesson/lesson-shell";
 import { SlideDeck, type Slide } from "@/components/slides/slide-deck";
 import { DigitRecognizerLab } from "@/components/simulators/digit-recognizer-lab";
@@ -30,6 +30,14 @@ const SLIDES: Slide[] = [
       "מהנדס AI טוב תמיד שואל: 'מה הכי פשוט שעדיין פותר את הבעיה?' לפני שקופץ לפתרון המורכב ביותר.",
     ],
   },
+  {
+    title: "ה-trade-off המרכזי: kNN מול CNN",
+    bullets: [
+      "kNN: אפס אימון, שקוף לגמרי (רואים את המרחקים), מיידי בדפדפן — אבל דיוק נמוך יותר ואיטי ככל שגדל מאגר התבניות.",
+      "CNN מאומן על MNIST: מעל 99% דיוק — אבל דורש אימון, מאגר של 60,000 דוגמאות, ותשתית; וקשה יותר לדבג כשהוא טועה.",
+      "אין 'נכון' מוחלט: הבחירה נגזרת מהאילוצים. לפרויקט לימודי בדפדפן, השקיפות והמיידיות של kNN שוות יותר מ-2% דיוק.",
+    ],
+  },
 ];
 
 const QUIZ: QuizQuestion[] = [
@@ -43,7 +51,14 @@ const QUIZ: QuizQuestion[] = [
       "אין סיבה מיוחדת",
     ],
     correctIndex: 1,
-    explanation: "זו בדיוק ההחלטה ההנדסית שנדונה: לבחור את הפתרון הפשוט ביותר שמספיק, לא את המורכב ביותר האפשרי.",
+    explanation:
+      "זו בדיוק ההחלטה ההנדסית שנדונה: לבחור את הפתרון הפשוט ביותר שמספיק, לא את המורכב ביותר האפשרי. kNN על כמה תבניות רץ מיידית בדפדפן, שקוף לחלוטין, ובלי עלות אימון — מה שהופך אותו מושלם למטרה לימודית.",
+    optionNotes: [
+      "שגוי: kNN לא תמיד מדויק יותר — CNN מאומן עוקף אותו בזיהוי ספרות. הבחירה כאן היא לגבי פשטות, לא דיוק.",
+      "נכון: לבעיה קטנה ולימודית, kNN מספיק, מיידי ושקוף — הפתרון הפשוט שעדיין פותר.",
+      "שגוי: רשתות נוירונים כן רצות בדפדפן (למשל TensorFlow.js); זו לא הסיבה.",
+      "שגוי: יש סיבה הנדסית מובהקת — עלות, שקיפות ומיידיות מול תועלת שולית בדיוק.",
+    ],
   },
 ];
 
@@ -81,6 +96,40 @@ const SECTIONS: LessonSection[] = [
     ),
   },
   { id: "quiz", label: "בוחן ידע", content: <QuizEngine questions={QUIZ} /> },
+  {
+    id: "success",
+    label: "מה נחשב הצלחה בפרויקט",
+    content: (
+      <div className="rounded-xl border border-success/30 bg-success/5 p-4 text-sm">
+        <p className="mb-2 flex items-center gap-2 font-bold text-success">
+          <CheckCircle2 size={18} /> סיימת בהצלחה אם:
+        </p>
+        <ul className="space-y-1.5">
+          <li>הרצת את המסווג וזיהית לפחות כמה ספרות שציירת — וגם ראית אותו טועה על ספרות דומות (4/9, 3/8).</li>
+          <li>אתה יכול להסביר במילים שלך <strong>למה</strong> נבחר kNN ולא רשת עמוקה — במונחי עלות, שקיפות ומיידיות.</li>
+          <li>אתה יכול לנסח את ה-trade-off מול CNN: מה מרוויחים ומה מפסידים בכל גישה.</li>
+          <li>אתה מזהה את המגבלה שהרזולוציה הנמוכה (8×8) יוצרת — ומבין שזו מגבלת נתונים, לא &quot;באג&quot;.</li>
+        </ul>
+      </div>
+    ),
+  },
+  {
+    id: "engineering-note",
+    label: "זווית ארכיטקטורה: איפה זה נשבר בקנה מידה",
+    content: (
+      <div className="rounded-xl border border-border bg-card p-4 text-sm">
+        <p className="mb-2 flex items-center gap-2 font-bold">
+          <Scale size={16} className="text-primary" /> הנקודה שבה הבחירה מתהפכת
+        </p>
+        <p className="text-muted">
+          kNN מנצח כאן כי יש עשר תבניות בלבד. אבל הוא &quot;עצלן&quot;: הוא לא לומד כלום מראש, אלא משווה כל
+          חיזוי לכל הדוגמאות. עם מיליוני דוגמאות זה קורס — כל חיזוי הופך לסריקה יקרה. בדיוק שם CNN
+          מאומן (שמשקיע פעם אחת באימון ואז מנבא מיידית) הופך לבחירה הנכונה. אותו עיקרון חוזר לאורך
+          הקורס: הפתרון הנכון תלוי בקנה המידה, לא ב&quot;מה הכי מתוחכם&quot;.
+        </p>
+      </div>
+    ),
+  },
   {
     id: "summary",
     label: "סיכום המודול",
