@@ -1,5 +1,6 @@
 "use client";
 
+import { Target, GitCompareArrows, CheckCircle2 } from "lucide-react";
 import { LessonShell, type LessonMeta, type LessonSection } from "@/components/lesson/lesson-shell";
 import { SlideDeck, type Slide } from "@/components/slides/slide-deck";
 import { EngineeringInsights } from "@/components/lesson/engineering-insights";
@@ -56,6 +57,36 @@ const QUIZ: QuizQuestion[] = [
 const SECTIONS: LessonSection[] = [
   { id: "slides", label: "מצגת: הפרויקט המסכם של המודול", content: <SlideDeck slides={SLIDES} /> },
   {
+    id: "rationale",
+    label: "למה הפרויקט הזה, ואיזו הכרעה ארכיטקטונית הוא מגלם",
+    content: (
+      <div className="space-y-4 text-sm">
+        <div className="rounded-xl border border-border bg-card p-4">
+          <p className="mb-2 flex items-center gap-2 font-bold text-primary">
+            <Target size={16} /> למה הפרויקט הזה
+          </p>
+          <p className="text-muted">
+            עד כה ה-RAG של AtlasDesk חי רק בצ&apos;אט האינטראקטיבי — אדם חייב לפתוח מסך ולשאול. הפרויקט הזה
+            מחבר את אותו RAG לתהליך אוטומציה אמיתי: אירוע חיצוני (&apos;פנייה חדשה&apos;) מפעיל תשובה בלי מעורבות
+            אנושית. זו הקפיצה מ&apos;כלי שמשתמשים בו&apos; ל&apos;מערכת שפועלת מעצמה&apos;, ובה בעת מאלץ אותך לממש בפועל
+            את שתי הגנות ה-production מהשיעור הקודם — אימות HMAC ו-idempotency — לא כתיאוריה אלא כקוד רץ.
+          </p>
+        </div>
+        <div className="rounded-xl border border-border bg-card p-4">
+          <p className="mb-2 flex items-center gap-2 font-bold text-primary">
+            <GitCompareArrows size={16} /> ההכרעה הארכיטקטונית: אמון מול פשטות (in-memory מול DB)
+          </p>
+          <p className="text-muted">
+            מאגר ה-event IDs שכבר טופלו ממומש כאן כ-Set in-memory — מהיר, אפס תלות, מושלם להדגמה. המחיר:
+            הוא נמחק בכל restart של השרת, ואינו משותף בין instances. הבחירה הזו מודעת: להדגמה, פשטות מנצחת;
+            בפרודקשן, השורה הזו חייבת לעבור ל-DB מתמשך (Supabase) — אחרת idempotency &apos;נשכחת&apos; אחרי deploy,
+            ואירוע כפול שהגיע לאחר restart יעובד שוב. זה בדיוק סוג ה-trade-off שמהנדס צריך לנמק במודע, לא לגלות בתקלה.
+          </p>
+        </div>
+      </div>
+    ),
+  },
+  {
     id: "engineering",
     label: "לחשוב כמו מהנדס AI",
     content: (
@@ -92,6 +123,23 @@ const SECTIONS: LessonSection[] = [
     ),
   },
   { id: "quiz", label: "בוחן ידע", content: <QuizEngine questions={QUIZ} /> },
+  {
+    id: "success",
+    label: "מה נחשב הצלחה בפרויקט",
+    content: (
+      <div className="rounded-xl border border-success/30 bg-success/5 p-4 text-sm">
+        <p className="mb-2 flex items-center gap-2 font-bold text-success">
+          <CheckCircle2 size={16} /> סימני הצלחה
+        </p>
+        <ul className="space-y-1.5">
+          <li>שלחת webhook עם חתימת HMAC תקינה וקיבלת טיוטת תשובה אמיתית מה-RAG.</li>
+          <li>בקשה בלי חתימה (או עם חתימה שגויה) נדחתה — אימתת שההגנה עובדת, לא רק שהיא קיימת.</li>
+          <li>שליחת אותו eventId פעמיים זוהתה כ-&apos;already_processed&apos; — idempotency פועלת בפועל.</li>
+          <li>אתה יכול להסביר את ה-trade-off של in-memory מול DB, ולתאר תוכנית מעבר קונקרטית ל-persistence.</li>
+        </ul>
+      </div>
+    ),
+  },
   {
     id: "homework",
     label: "סיכום מודול",
