@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { Trophy, ExternalLink, Sparkles } from "lucide-react";
+import { Trophy, ExternalLink, Sparkles, CheckCircle2 } from "lucide-react";
 import { LessonShell, type LessonMeta, type LessonSection } from "@/components/lesson/lesson-shell";
 import { SlideDeck, type Slide } from "@/components/slides/slide-deck";
 import { EngineeringInsights } from "@/components/lesson/engineering-insights";
@@ -75,12 +75,47 @@ const SECTIONS: LessonSection[] = [
     label: "לחשוב כמו מהנדס AI",
     content: (
       <EngineeringInsights
-        why="בחרנו לבנות את AtlasDesk כעמוד/מוצר נפרד (לא רכיב בתוך שיעור) כי זה מדגים איך פרויקט production אמיתי נראה — עם route משלו, קומפוננטות משלו, וזהות מוצר עצמאית."
+        why="בחרנו לבנות את AtlasDesk כעמוד/מוצר נפרד (לא רכיב בתוך שיעור) כי זה מדגים איך פרויקט production אמיתי נראה — עם route משלו, קומפוננטות משלו, וזהות מוצר עצמאית. חשוב מכך: פרויקט אחד מתמשך מלמד את מה שכלים בודדים לא יכולים — איך יכולות מצטברות ומשתלבות למערכת אחת שגדלה בלי לקרוס."
         alternatives="אפשר היה לבנות סימולציה בלבד (בלי קריאת API אמיתית) — אבל זה היה מפספס את הלמידה החשובה ביותר: לראות עלות וטוקנים אמיתיים, ולחוות latency אמיתי."
+        whenNotTo="פרויקט מתמשך אחד אינו נכון תמיד: לחקירה מהירה של רעיון בודד, prototype חד-פעמי שנזרק עדיף — אין טעם לשלם על ארכיטקטורה שתתחזק לאורך זמן אם לא תחזור אליה."
         maintenance="הקוד מאורגן כך שכל מודול עתידי יכול להרחיב בלי לבנות מחדש: lib/atlasdesk/config.ts (הגדרות/system prompt במקום אחד מרוכז), components/atlasdesk/ (רכיבי UI), app/atlasdesk/ (routes)."
         cost="מצב המפתח (Developer Mode) מציג טוקנים ועלות אמיתיים לכל הודעה — זה בדיוק סוג הכלי שצוות הנדסת AI אמיתי צריך כדי לפקח על עלויות בזמן פיתוח."
         realWorld="גרסה זו כבר ניתנת להצגה ל'משתמש אמיתי' (עם המגבלה שהיא לא ניגשת עדיין למידע אמיתי של לקוח — זה בדיוק מה שמודול ה-Tool Calling הבא יוסיף)."
       />
+    ),
+  },
+  {
+    id: "trade-off",
+    label: "החלטת ארכיטקטורה: system prompt קבוע מול מקור-אמת חיצוני",
+    content: (
+      <div className="rounded-xl border border-border bg-card p-4 text-sm">
+        <p className="mb-2 font-bold text-primary">ה-trade-off המרכזי של v0.1</p>
+        <p className="text-muted">
+          בגרסה הזו זהות הבוט וכללי-ההתנהגות שלו יושבים ב-system prompt קבוע ב-config. זו החלטה
+          מכוונת: היא פשוטה, ניתנת-לגרסא, וקלה לבדיקה — מושלמת ל-v0.1. המחיר: כל &quot;עובדה&quot;
+          שהבוט צריך (מדיניות, מחירים, נתוני לקוח) מקודדת ידנית, ולכן הוא עדיין עלול להמציא כשנשאל
+          על משהו שאינו בפרומפט. זו בדיוק המגבלה שהשיעורים על Grounding ו-RAG פותרים — מעבר
+          מ&quot;ידע מוטמע בפרומפט&quot; ל&quot;שליפה ממקור-אמת חיצוני&quot;. בחרנו במפורש לא לפתור
+          זאת עכשיו כדי לשמור את הפרויקט הראשון קטן, מובן, ומוכן-להרצה.
+        </p>
+      </div>
+    ),
+  },
+  {
+    id: "success-criteria",
+    label: "מה נחשב הצלחה",
+    content: (
+      <div className="rounded-xl border border-success/30 bg-success/5 p-4 text-sm">
+        <p className="mb-2 flex items-center gap-2 font-bold text-success">
+          <CheckCircle2 size={16} /> סימנת V על הפרויקט כשמתקיים:
+        </p>
+        <ul className="space-y-1.5 pr-1">
+          <li>הבוט מנהל שיחה רב-הודעתית מול Claude API אמיתי ושומר על זהותו (מה-system prompt) לאורך כל השיחה.</li>
+          <li>מצב המפתח מציג טוקנים ועלות אמיתיים לכל הודעה — ואתה יודע לקרוא אותם.</li>
+          <li>אתה יכול להצביע היכן בקוד יושבים ה-system prompt (config), רכיבי ה-UI, וה-route — ולהסביר למה ההפרדה הזו תאפשר להוסיף יכולות בלי לבנות מחדש.</li>
+          <li>אתה יכול לנסח במשפט את מגבלת v0.1 (אין גישה למקור-אמת חיצוני) ולמה מודול ה-Tool Calling/RAG הבא הוא הצעד הנכון להסירה.</li>
+        </ul>
+      </div>
     ),
   },
   { id: "quiz", label: "בוחן ידע", content: <QuizEngine questions={QUIZ} /> },

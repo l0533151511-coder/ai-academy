@@ -96,6 +96,25 @@ const QUIZ: QuizQuestion[] = [
       "לא נכון: אלו שיטות HTTP, לא קשורות לסיווג היכולות של MCP.",
     ],
   },
+  {
+    id: "q3",
+    question: "צוות מתחבר לשרת MCP צד-שלישי לא-מוכר שמצא ברשת, שחושף כלי run_shell_command. מהי הזהירות ההנדסית הנכונה?",
+    options: [
+      "לחבר אותו מיד — אם הוא ברשימת שרתי MCP הציבוריים הוא בטוח לחלוטין",
+      "להתייחס לשרת MCP כמו לכל dependency לא-מהימן: לקרוא את הקוד/ההרשאות, להבין מה כל כלי באמת מריץ, ולהריץ בסביבה מבודדת עם least privilege",
+      "MCP מאובטח מעצם היותו פרוטוקול, אז אין צורך לבדוק דבר",
+      "מספיק שה-transport הוא stdio (מקומי) — אין שום סיכון בשרת מקומי",
+    ],
+    correctIndex: 1,
+    explanation:
+      "שרת MCP הוא קוד שרץ עם ההרשאות שלך ויכול לחשוף כלים בעלי כוח אמיתי (הרצת פקודות, גישה לקבצים). חיבור שרת לא-מוכר זהה להרצת חבילה לא-מוכרת: בדוק מה הוא עושה, הענק לו את המינימום ההכרחי, ובודד אותו. הפרוטוקול מסדיר תקשורת — הוא לא ערובה לאבטחת התוכן.",
+    optionNotes: [
+      "לא נכון ומסוכן: 'רשימה ציבורית' אינה חותמת אמון — כל אחד יכול לפרסם שרת. run_shell_command בפרט הוא כוח מלא על המכונה שלך.",
+      "התשובה הנכונה: שרת MCP = dependency לא-מהימן שרץ עם ההרשאות שלך. בדוק, הגבל (least privilege), בודד.",
+      "לא נכון: הפרוטוקול מגדיר איך מדברים, לא מה הכלים מותר להם לעשות — האבטחה היא באחריותך.",
+      "לא נכון: stdio מקומי רץ על המכונה שלך עם ההרשאות שלך — זה דווקא מסוכן יותר, לא פחות, כי יש גישה מקומית ישירה.",
+    ],
+  },
 ];
 
 const SECTIONS: LessonSection[] = [
@@ -138,6 +157,32 @@ const SECTIONS: LessonSection[] = [
         cost="MCP server נפרד דורש תהליך רץ (או deployment נפרד), תחזוקה, וניהול גרסאות פרוטוקול — עלות תפעולית אמיתית שצריך להצדיק מול התועלת."
         realWorld="Claude Code עצמו הוא MCP client — כשאתה מחבר לו שרתי MCP (למשל שרת שמתחבר ל-GitHub או ל-Slack), אתה בדיוק חווה את הארכיטקטורה שלמדת כאן."
       />
+    ),
+  },
+  {
+    id: "mistakes",
+    label: "טעויות פרודקשן נפוצות",
+    content: (
+      <div className="grid gap-4 sm:grid-cols-2">
+        <div className="rounded-xl border border-danger/30 bg-danger/5 p-4">
+          <p className="mb-2 font-bold text-danger">מה שובר מערכות בפועל</p>
+          <ul className="space-y-1.5 text-sm">
+            <li>בונים MCP server מלא כי &quot;זה הטרנד&quot;, כשלאפליקציה בודדת מספיק tool calling מובנה — מורכבות תפעולית בלי תועלת.</li>
+            <li>שוכחים ש-MCP server הוא תהליך שצריך לרוץ, לנטר ולעדכן — בפרודקשן הוא נקודת-כשל נוספת שנופלת בשקט.</li>
+            <li>מחברים שרת MCP צד-שלישי לא-מוכר בלי לבדוק אילו כלים הוא חושף ובאיזה כוח — כמו להתקין dependency עיוור.</li>
+            <li>מבלבלים בין Resources (קריאת מידע) ל-Tools (פעולה) ומגדירים כלי-כתיבה כ&quot;resource&quot; תמים.</li>
+          </ul>
+        </div>
+        <div className="rounded-xl border border-success/30 bg-success/5 p-4">
+          <p className="mb-2 font-bold text-success">איך מקצוענים עושים זאת</p>
+          <ul className="space-y-1.5 text-sm">
+            <li>מתחילים מהפתרון הפשוט (tool calling מובנה) ועוברים ל-MCP רק כשבאמת יש כמה לקוחות שצריכים לשתף כלים.</li>
+            <li>מתייחסים ל-MCP server כמו לכל שירות: health-check, לוגים, גרסת פרוטוקול מנוהלת.</li>
+            <li>בודקים שרת MCP חיצוני כמו dependency לא-מהימן: קוראים מה הוא מריץ, מריצים בבידוד, least privilege.</li>
+            <li>ממפים במודע כל יכולת לסוג הנכון — tool / resource / prompt — כדי שהלקוח יטפל בה נכון.</li>
+          </ul>
+        </div>
+      </div>
     ),
   },
   { id: "quiz", label: "בוחן ידע", content: <QuizEngine questions={QUIZ} /> },

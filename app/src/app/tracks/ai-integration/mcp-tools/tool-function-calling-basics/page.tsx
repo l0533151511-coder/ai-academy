@@ -145,6 +145,32 @@ const SECTIONS: LessonSection[] = [
       />
     ),
   },
+  {
+    id: "mistakes",
+    label: "טעויות פרודקשן נפוצות",
+    content: (
+      <div className="grid gap-4 sm:grid-cols-2">
+        <div className="rounded-xl border border-danger/30 bg-danger/5 p-4">
+          <p className="mb-2 font-bold text-danger">מה שובר מערכות בפועל</p>
+          <ul className="space-y-1.5 text-sm">
+            <li>סומכים על הארגומנטים שהמודל שלח כמו שהם — הוא &quot;ביקש&quot; delete_ticket עם id שהמציא, והקוד מבצע בלי ולידציה.</li>
+            <li>description עמום (&quot;בודק פנייה&quot;) — הכלי נקרא בזמן הלא-נכון או לא נקרא כשצריך.</li>
+            <li>אין תקרת סיבובים ללולאת הכלים — המודל מבקש כלי שוב ושוב, העלות וה-latency מתפוצצים.</li>
+            <li>שוכחים להחזיר tool_result בפורמט/id הנכון — המודל &quot;תקוע&quot; ולא ממשיך את השיחה.</li>
+          </ul>
+        </div>
+        <div className="rounded-xl border border-success/30 bg-success/5 p-4">
+          <p className="mb-2 font-bold text-success">איך מקצוענים עושים זאת</p>
+          <ul className="space-y-1.5 text-sm">
+            <li>מתייחסים לכל ארגומנט מהמודל כקלט לא-אמין: מוודאים סוג, טווח, והרשאה לפני ביצוע (least privilege).</li>
+            <li>משקיעים ב-description כמו ב-system prompt — ספציפי, עם פורמט הפרמטר ומקרי-קצה.</li>
+            <li>מגבילים מספר סיבובי tool_use מקסימלי ומטפלים במקרה שהמודל &quot;מסרב&quot; להיעצר.</li>
+            <li>מפרידים פעולות write (דורשות אישור/ולידציה קפדנית) מ-read — בדיוק כמו endpoints רגילים.</li>
+          </ul>
+        </div>
+      </div>
+    ),
+  },
   { id: "quiz", label: "בוחן ידע", content: <QuizEngine questions={QUIZ} /> },
   {
     id: "glossary",

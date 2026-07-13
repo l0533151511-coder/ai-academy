@@ -1,5 +1,6 @@
 "use client";
 
+import { Layers } from "lucide-react";
 import { LessonShell, type LessonMeta, type LessonSection } from "@/components/lesson/lesson-shell";
 import { SlideDeck, type Slide } from "@/components/slides/slide-deck";
 import { PromptComparisonLab } from "@/components/comparisons/prompt-comparison-lab";
@@ -85,6 +86,25 @@ const QUIZ: QuizQuestion[] = [
       "לא נכון: re-ranking בדרך כלל מוסיף עלות חישובית (מודל שני), לא מאיץ את חישוב ה-embeddings.",
     ],
   },
+  {
+    id: "q3",
+    question: "בחרת גודל chunk גדול מאוד (עמוד שלם). איזו בעיה סבירה תיתקל בה ב-retrieval?",
+    options: [
+      "ה-retrieval יהיה מהיר מדי ולכן לא מדויק",
+      "רלוונטיות מדוללת: אם רק משפט אחד בעמוד רלוונטי לשאלה, שאר העמוד הוא 'רעש' שמוריד את ציון הדמיון ומכניס טקסט מיותר ל-context",
+      "chunks גדולים תמיד עדיפים, אין בעיה",
+      "לא ניתן לחשב embedding ל-chunk גדול",
+    ],
+    correctIndex: 1,
+    explanation:
+      "embedding של chunk גדול הוא 'ממוצע' של הרבה נושאים — הרעיון הרלוונטי היחיד נבלע בתוך שאר התוכן, כך שגם ציון הדמיון יורד וגם ה-context שנשלח למודל מלא ברעש שמייקר ועלול להטעות. chunk קטן מדי סובל מהבעיה ההפוכה — מאבד הקשר. לכן בוחרים גודל לפי סוג התוכן.",
+    optionNotes: [
+      "לא נכון: מהירות retrieval לא קשורה לדיוק כאן — הבעיה היא שהאות הרלוונטי מדולל בתוך תוכן לא-קשור.",
+      "התשובה הנכונה: chunk גדול מדלל רלוונטיות — משפט אחד רלוונטי בתוך עמוד שלם 'נבלע', וה-context מתמלא רעש.",
+      "לא נכון: אין 'תמיד עדיף' — chunk גדול מדי מדלל רלוונטיות, קטן מדי מאבד הקשר. הגודל תלוי בתוכן.",
+      "לא נכון: אפשר לחשב embedding ל-chunk גדול; הבעיה איכותית (דילול), לא טכנית.",
+    ],
+  },
 ];
 
 const SECTIONS: LessonSection[] = [
@@ -129,6 +149,32 @@ Chunk 2 (עם overlap): "...לחץ על 'ביטול מנוי'.
       />
     ),
   },
+  {
+    id: "mistakes",
+    label: "טעויות פרודקשן נפוצות",
+    content: (
+      <div className="grid gap-4 sm:grid-cols-2">
+        <div className="rounded-xl border border-danger/30 bg-danger/5 p-4">
+          <p className="mb-2 font-bold text-danger">מה שובר chunking בפועל</p>
+          <ul className="space-y-1.5 text-sm">
+            <li>גודל chunk אחד קבוע לכל סוגי התוכן — תיעוד טכני צפוף ונרטיב ארוך צריכים גדלים שונים לגמרי.</li>
+            <li>פיצול נאיבי לפי אורך תווים שחותך משפטים/טבלאות/בלוקי קוד באמצע.</li>
+            <li>אפס overlap — מידע קריטי נחתך בדיוק על התפר ונאבד מכל chunk.</li>
+            <li>לא בודקים בעין אף דוגמת chunk אחת אחרי הפיצול — מגלים את הקיטוע רק כשה-retrieval כבר נכשל בפרודקשן.</li>
+          </ul>
+        </div>
+        <div className="rounded-xl border border-success/30 bg-success/5 p-4">
+          <p className="mb-2 font-bold text-success">איך מקצוענים עושים זאת</p>
+          <ul className="space-y-1.5 text-sm">
+            <li>מפצלים לפי מבנה טבעי (כותרות/פסקאות), עם overlap קטן לשמירת רציפות.</li>
+            <li>מתאימים את גודל ה-chunk לסוג התוכן, ומודדים recall@k לפני שמקבעים בחירה.</li>
+            <li>מוסיפים re-ranking על top-K כשה-retrieval הראשוני לא מספיק מדויק.</li>
+            <li>קוראים בעין מדגם chunks אחרי כל שינוי אסטרטגיה — לפני שמריצים על כל בסיס הידע.</li>
+          </ul>
+        </div>
+      </div>
+    ),
+  },
   { id: "quiz", label: "בוחן ידע", content: <QuizEngine questions={QUIZ} /> },
   {
     id: "glossary",
@@ -170,6 +216,23 @@ Chunk 2 (עם overlap): "...לחץ על 'ביטול מנוי'.
     ),
   },
   {
+    id: "recap",
+    label: "רגע לפני שממשיכים: בקצרה",
+    content: (
+      <div className="rounded-xl border border-border bg-card p-4 text-sm">
+        <p className="mb-2 flex items-center gap-2 font-bold">
+          <Layers size={16} className="text-primary" /> מה שחשוב לזכור
+        </p>
+        <ol className="list-decimal space-y-1.5 pr-5">
+          <li>גודל chunk הוא פשרה: <strong>גדול מדי</strong> = רעש ורלוונטיות מדוללת; <strong>קטן מדי</strong> = אובדן הקשר.</li>
+          <li><strong>Overlap</strong> מונע מידע שנחתך על התפר; <strong>chunking מודע-מבנה</strong> שומר יחידות מידע שלמות.</li>
+          <li><strong>Re-ranking</strong> הוא פשרת עלות/דיוק: retrieval זול על הכל, ומודל מדויק יקר רק על top-K.</li>
+          <li>אין גודל אוניברסלי — מתאימים לסוג התוכן <strong>ומודדים</strong>, לא מנחשים.</li>
+        </ol>
+      </div>
+    ),
+  },
+  {
     id: "homework",
     label: "שיעורי בית",
     content: (
@@ -178,6 +241,11 @@ Chunk 2 (עם overlap): "...לחץ על 'ביטול מנוי'.
         <p className="mt-1 text-muted">
           כתוב לעצמך כלל אצבע: איזה גודל chunk והאם overlap היית משתמש עבור (א) תיעוד API טכני,
           (ב) פוסטים בבלוג, (ג) שאלות נפוצות קצרות. נמק כל בחירה במשפט אחד.
+        </p>
+        <p className="mt-3 font-semibold">מוביל לשיעור הבא:</p>
+        <p className="mt-1 text-muted">
+          עכשיו שיש לך chunks טובים ו-retrieval — איך יודעים שהוא באמת עובד? בשיעור הבא נמדוד
+          איכות RAG: מתי הכישלון הוא ב-retrieval ומתי בנאמנות התשובה, ולמה חובה למדוד אותם בנפרד.
         </p>
       </div>
     ),
