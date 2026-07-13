@@ -3,6 +3,8 @@
 import * as React from "react";
 import { CheckCircle2, XCircle } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { useProgress } from "@/lib/progress/store";
+import { useLessonKey } from "@/lib/lesson/lesson-context";
 
 export interface QuizQuestion {
   id: string;
@@ -40,8 +42,16 @@ export function QuizEngine({ questions }: { questions: QuizQuestion[] }) {
   const [submitted, setSubmitted] = React.useState(false);
   // מפתח rebuild אקראי כדי שכל טעינת עמוד/ניסיון חוזר יקבל סדר אחר, אך יציב תוך כדי מענה
   const [sessionSeed] = React.useState(() => Math.random().toString(36).slice(2));
+  const lessonKey = useLessonKey();
+  const { recordQuiz } = useProgress();
 
   const score = questions.filter((q) => answers[q.id] === q.correctIndex).length;
+
+  const handleSubmit = () => {
+    setSubmitted(true);
+    // רישום לתוך המנוע האדפטיבי — רק כשהבוחן בתוך שיעור (יש lessonKey)
+    if (lessonKey) recordQuiz(lessonKey, score, questions.length);
+  };
 
   return (
     <div className="space-y-6">
@@ -104,7 +114,7 @@ export function QuizEngine({ questions }: { questions: QuizQuestion[] }) {
 
       {!submitted ? (
         <button
-          onClick={() => setSubmitted(true)}
+          onClick={handleSubmit}
           disabled={Object.keys(answers).length < questions.length}
           className="rounded-full bg-primary px-6 py-2.5 font-semibold text-primary-foreground disabled:opacity-40"
         >

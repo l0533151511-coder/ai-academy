@@ -3,6 +3,7 @@
 import * as React from "react";
 import { Clock, BarChart3, ListChecks, CheckCircle2, Bookmark, StickyNote } from "lucide-react";
 import { useProgress } from "@/lib/progress/store";
+import { LessonKeyProvider } from "@/lib/lesson/lesson-context";
 import { cn } from "@/lib/utils";
 
 export interface LessonMeta {
@@ -45,6 +46,7 @@ export function LessonShell({
   }, [state.notes, lessonSlug]);
 
   return (
+    <LessonKeyProvider lessonKey={lessonKey}>
     <div className="mx-auto flex max-w-6xl gap-8 px-6 py-10">
       <aside className="sticky top-20 hidden h-fit w-56 shrink-0 lg:block">
         <nav className="space-y-1 text-sm">
@@ -139,5 +141,6 @@ export function LessonShell({
         </div>
       </div>
     </div>
+    </LessonKeyProvider>
   );
 }

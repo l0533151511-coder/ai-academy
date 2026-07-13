@@ -5,6 +5,7 @@ import { BookOpen, Trophy, Target, ArrowLeft, Bookmark, PartyPopper } from "luci
 import { useProgress, levelFromXP } from "@/lib/progress/store";
 import { XPBar } from "@/components/progress/xp-bar";
 import { StreakCalendar } from "@/components/progress/streak-calendar";
+import { AdaptivePanel } from "@/components/adaptive/adaptive-panel";
 import { totalLessons, findNextLesson, allLessonsFlat } from "@/lib/curriculum/data";
 
 export default function DashboardPage() {
@@ -62,6 +63,8 @@ export default function DashboardPage() {
           )}
         </div>
       </div>
+
+      <AdaptivePanel />
 
       {bookmarkedLessons.length > 0 && (
         <div className="mt-10">
