@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 import { TRACKS } from "@/lib/curriculum/data";
 
-const SITE_URL = "https://ai-academy-gray-five.vercel.app";
+const SITE_URL = "https://ai-academy-three-olive.vercel.app";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticPages = ["", "/tracks", "/dashboard", "/playground", "/mentor", "/auth/login", "/auth/signup"];

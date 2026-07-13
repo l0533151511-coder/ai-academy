@@ -1,7 +1,7 @@
 # פריסה (Deployment)
 
 ## סטטוס — פרוס ופעיל ✅
-- **אתר חי:** https://ai-academy-gray-five.vercel.app
+- **אתר חי:** https://ai-academy-three-olive.vercel.app
 - **ריפו:** https://github.com/f025954954-coder/ai-academy
 - ✅ פרויקט Git מקומי מסודר עם היסטוריית קומיטים ברורה, נדחף ל-GitHub (branch `main`)
 - ✅ מחובר ל-Vercel (Root Directory = `app`, Framework: Next.js, זוהה אוטומטית)

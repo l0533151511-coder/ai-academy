@@ -12,7 +12,7 @@ const heebo = Heebo({
   weight: ["300", "400", "500", "600", "700", "800"],
 });
 
-const SITE_URL = "https://ai-academy-gray-five.vercel.app";
+const SITE_URL = "https://ai-academy-three-olive.vercel.app";
 const SITE_TITLE = "אקדמיית AI | ללמוד לבנות בינה מלאכותית אמיתית";
 const SITE_DESCRIPTION =
   "האקדמיה המקצועית ללימוד הנדסת AI מאפס עד production — מבוססת פרויקטים, בעברית מלאה. Claude Code, Prompt Engineering, MCP, RAG, Agents ובניית מוצרי AI מסחריים.";
