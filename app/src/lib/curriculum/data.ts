@@ -447,6 +447,30 @@ export const TRACKS: TrackSummary[] = [
             prerequisites: ["transformer-attention"],
           },
           {
+            slug: "reasoning-models-extended-thinking",
+            title: "מודלי הסקה ו-Extended Thinking",
+            objectives: [
+              "להבין מה מבדיל מודל הסקה (reasoning) ממודל רגיל, ומה זה extended thinking",
+              "לדעת מתי כדאי 'לתת למודל לחשוב' (בעיות רב-שלביות) ומתי זה בזבוז עלות/latency",
+              "להבין את הפשרה עומק-הסקה מול עלות/מהירות בבחירת מודל למשימה",
+            ],
+            estMinutes: 30,
+            difficulty: "בינוני",
+            prerequisites: ["context-window-limits"],
+          },
+          {
+            slug: "multimodal-with-claude",
+            title: "מודלים מולטימודליים: ראייה ומסמכים",
+            objectives: [
+              "להבין איך מודל 'רואה' תמונות/מסמכים (patches) ומה גבולות היכולת",
+              "לזהות מקרי שימוש אמיתיים (סקירת צילום מסך, חילוץ ממסמך, ניתוח דיאגרמה) ומתי לא לסמוך על זה",
+              "לשקול עלות/דיוק של קלט חזותי מול חלופות (OCR קלאסי, טקסט)",
+            ],
+            estMinutes: 30,
+            difficulty: "בינוני",
+            prerequisites: ["reasoning-models-extended-thinking"],
+          },
+          {
             slug: "project-token-cost-calculator",
             title: "פרויקט מודול: מחשבון טוקנים ועלויות",
             objectives: [
@@ -455,7 +479,7 @@ export const TRACKS: TrackSummary[] = [
             ],
             estMinutes: 35,
             difficulty: "בינוני",
-            prerequisites: ["context-window-limits"],
+            prerequisites: ["multimodal-with-claude"],
           },
         ],
       },
@@ -982,6 +1006,18 @@ export const TRACKS: TrackSummary[] = [
             prerequisites: ["mcp-protocol-architecture"],
           },
           {
+            slug: "structured-outputs-json-mode",
+            title: "פלט מובנה: JSON אמין ו-Schema",
+            objectives: [
+              "לקבל פלט JSON יציב וניתן-לעיבוד בכל קריאה — לא רק ב-90% מהמקרים",
+              "להשתמש ב-tool_use ככלי לאילוץ מבנה (structured output) מול הנחיה טקסטואלית בלבד",
+              "לאמת פלט מול schema בקוד ולנסות שוב בכישלון — במקום לסמוך על המודל",
+            ],
+            estMinutes: 35,
+            difficulty: "בינוני",
+            prerequisites: ["building-first-mcp-server"],
+          },
+          {
             slug: "project-atlasdesk-tool-calling",
             title: "פרויקט מודול: AtlasDesk מקבל כלי אמיתי",
             objectives: [
@@ -991,7 +1027,7 @@ export const TRACKS: TrackSummary[] = [
             ],
             estMinutes: 45,
             difficulty: "מתקדם",
-            prerequisites: ["building-first-mcp-server"],
+            prerequisites: ["structured-outputs-json-mode"],
           },
         ],
       },
@@ -1320,6 +1356,18 @@ export const TRACKS: TrackSummary[] = [
             prerequisites: ["observability-fundamentals-for-ai"],
           },
           {
+            slug: "streaming-responses",
+            title: "תגובות בזרימה (Streaming)",
+            objectives: [
+              "להבין למה streaming קריטי לחוויית משתמש (latency נתפס) במוצרי AI",
+              "להכיר את המנגנון (SSE/chunks) ואיך מרנדרים תשובה חלקית תוך כדי יצירה",
+              "לטפל בשגיאות ובביטול באמצע זרם, ולדעת מתי streaming לא מתאים (עיבוד תוכנתי של הפלט)",
+            ],
+            estMinutes: 30,
+            difficulty: "מתקדם",
+            prerequisites: ["caching-strategies-for-ai"],
+          },
+          {
             slug: "project-atlasdesk-monitoring-layer",
             title: "פרויקט מודול: AtlasDesk מקבל שכבת ניטור אמיתית",
             objectives: [
@@ -1329,7 +1377,7 @@ export const TRACKS: TrackSummary[] = [
             ],
             estMinutes: 40,
             difficulty: "מתקדם",
-            prerequisites: ["caching-strategies-for-ai"],
+            prerequisites: ["streaming-responses"],
           },
         ],
       },
@@ -1364,6 +1412,18 @@ export const TRACKS: TrackSummary[] = [
             prerequisites: ["prompt-injection-defense"],
           },
           {
+            slug: "ai-safety-responsible-ai",
+            title: "בטיחות AI ופיתוח אחראי",
+            objectives: [
+              "להבין את סיכוני הפריסה האמיתיים: הטיה, שימוש לרעה, שקיפות, ופיקוח אנושי",
+              "להכיר guardrails מעשיים ו-red-teaming כחלק משגרת הפיתוח, לא כמחשבה מאוחרת",
+              "לדעת מתי להשאיר אדם-בלולאה ואיך לתקשר גבולות של מערכת AI למשתמש",
+            ],
+            estMinutes: 30,
+            difficulty: "מתקדם",
+            prerequisites: ["cost-optimization-at-scale"],
+          },
+          {
             slug: "project-atlasdesk-security-hardening",
             title: "פרויקט מודול: הקשחת AtlasDesk מפני Prompt Injection",
             objectives: [
@@ -1373,7 +1433,7 @@ export const TRACKS: TrackSummary[] = [
             ],
             estMinutes: 40,
             difficulty: "מתקדם",
-            prerequisites: ["cost-optimization-at-scale"],
+            prerequisites: ["ai-safety-responsible-ai"],
           },
         ],
       },
@@ -1408,6 +1468,18 @@ export const TRACKS: TrackSummary[] = [
             prerequisites: ["sla-reliability-targets"],
           },
           {
+            slug: "testing-ai-systems",
+            title: "בדיקות למערכות AI (Eval-Driven Development)",
+            objectives: [
+              "להבין למה בדיקות רגילות נשברות על מערכת לא-דטרמיניסטית, ומה בא במקומן",
+              "לבנות golden set ו-evals אוטומטיים, ולהריץ אותם בכל שינוי פרומפט/מודל (regression)",
+              "לשלב evals ב-CI כך ששינוי שמוריד איכות ייחסם לפני פרודקשן",
+            ],
+            estMinutes: 35,
+            difficulty: "מתקדם",
+            prerequisites: ["feature-flags-safe-rollout"],
+          },
+          {
             slug: "project-atlasdesk-incident-runbook",
             title: "פרויקט מודול: Runbook ו-Playbook תקריות ל-AtlasDesk",
             objectives: [
@@ -1417,7 +1489,7 @@ export const TRACKS: TrackSummary[] = [
             ],
             estMinutes: 40,
             difficulty: "מתקדם",
-            prerequisites: ["feature-flags-safe-rollout"],
+            prerequisites: ["testing-ai-systems"],
           },
         ],
         isCapstone: true,
