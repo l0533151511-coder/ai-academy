@@ -8,6 +8,7 @@ const NAV = [
   { href: "/tracks", label: "מסלולי לימוד" },
   { href: "/dashboard", label: "לוח בקרה" },
   { href: "/skills", label: "מפת כישורים" },
+  { href: "/graduation", label: "תקן הבוגר" },
   { href: "/playground", label: "מעבדות" },
   { href: "/mentor", label: "AI Mentor" },
 ];
