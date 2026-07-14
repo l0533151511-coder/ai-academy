@@ -36,6 +36,14 @@ const SLIDES: Slide[] = [
       "auth מלא (multi-tenancy אמיתי) היה דורש: טבלת users, טבלת organizations, session management, ו-RLS (Row Level Security) ב-DB — הרבה מעבר לתיקון קטן הזה.",
     ],
   },
+  {
+    title: "למה זה הפרויקט הנכון לסיים בו את המודול",
+    bullets: [
+      "הוא סוגר פער אבטחה אמיתי בקוד אמיתי — לא תרגיל-צעצוע. אתה חווה את המסלול המלא: זיהוי חשיפה, תיקון ממוקד, ותיעוד מה עוד חסר.",
+      "הוא מלמד את השיעור החשוב ביותר בהנדסת SaaS: 'המידה הנכונה'. לא כל endpoint צריך auth מלא היום — אבל כל endpoint שחושף מידע רגיש חייב משהו, לא כלום.",
+      "trade-off מרכזי שתחווה: מפתח-משותף אחד נותן 80% מההגנה ב-5% מהמאמץ. auth מלא (users/roles/orgs/RLS) הוא ה-20% הנותרים — במחיר תשתית פי כמה. הפרויקט מכריח אותך לנמק היכן על העקומה הזו נכון לעצור עכשיו.",
+    ],
+  },
 ];
 
 const QUIZ: QuizQuestion[] = [
@@ -97,6 +105,21 @@ const SECTIONS: LessonSection[] = [
     ),
   },
   { id: "quiz", label: "בוחן ידע", content: <QuizEngine questions={QUIZ} /> },
+  {
+    id: "success-bar",
+    label: "מה נחשב הצלחה בפרויקט הזה",
+    content: (
+      <div className="rounded-xl border border-success/30 bg-success/5 p-4 text-sm">
+        <p className="mb-2 font-bold text-success">סיימת את הפרויקט כשורה אם:</p>
+        <ul className="list-disc space-y-1.5 pr-5 text-muted">
+          <li>הרצת את שלושת מצבי הגישה בפועל (בלי header / header שגוי / header נכון) וראית שכל אחד מתנהג כצפוי — לא רק ”הקוד נראה נכון”.</li>
+          <li>יש לך רשימה קונקרטית של endpoints נוספים שצריכים הגנה דומה (או נימוק מדוע אין כאלה) — לא הנחה גורפת.</li>
+          <li>יש לך מסמך-פער ברור: אילו רכיבים בדיוק חסרים ל-auth מלא (users, sessions, roles, RLS) ובאיזה סדר תוסיף אותם — לא ”צריך auth יום אחד”.</li>
+          <li>אתה יכול לנמק את החלטת ה-trade-off: למה מפתח-משותף הוא המידה הנכונה עכשיו, ומה הטריגר העסקי שיצדיק את המעבר ל-auth מלא.</li>
+        </ul>
+      </div>
+    ),
+  },
   {
     id: "homework",
     label: "סיכום מודול",

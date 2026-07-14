@@ -257,7 +257,7 @@ const SECTIONS: LessonSection[] = [
         </p>
         <p className="mt-3 font-semibold">מוביל לשיעור הבא:</p>
         <p className="mt-1 text-muted">
-          בנית אוסף תבניות אישי. בפרויקט המודול הבא, &quot;prompt-library מתועד ל-AtlasDesk&quot;,
+          בנית אוסף תבניות אישי. בפרויקט המודול הבא, ”prompt-library מתועד ל-AtlasDesk”,
           נהפוך את זה ל-playbook מלא של פרויקט אמיתי, יחד עם CONTRIBUTING.md שמנחה כל מפתח חדש.
         </p>
       </div>

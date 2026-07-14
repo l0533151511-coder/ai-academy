@@ -107,7 +107,7 @@ const SECTIONS: LessonSection[] = [
       <div>
         <p className="mb-3 text-sm text-muted">
           נסה: <code>git init</code> · <code>git add file.js</code> ·{" "}
-          <code>git commit -m &quot;First commit&quot;</code> · <code>git log</code>
+          <code>git commit -m ”First commit”</code> · <code>git log</code>
         </p>
         <GitSimulator />
       </div>

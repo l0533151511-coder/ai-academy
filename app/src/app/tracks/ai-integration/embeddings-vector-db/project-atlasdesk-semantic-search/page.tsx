@@ -70,8 +70,8 @@ const SECTIONS: LessonSection[] = [
     content: (
       <div>
         <p className="mb-3 text-sm text-muted">
-          נסה &quot;איך מבטלים מנוי&quot; — שים לב שהחיפוש המילולי לא מוצא את המאמר הרלוונטי
-          (&quot;הליך סיום התחייבות חודשית&quot;), אבל החיפוש הסמנטי כן (אם הוגדר OPENAI_API_KEY).
+          נסה ”איך מבטלים מנוי” — שים לב שהחיפוש המילולי לא מוצא את המאמר הרלוונטי
+          (”הליך סיום התחייבות חודשית”), אבל החיפוש הסמנטי כן (אם הוגדר OPENAI_API_KEY).
         </p>
         <SemanticSearchLab />
       </div>

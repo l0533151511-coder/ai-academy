@@ -156,7 +156,7 @@ const SECTIONS: LessonSection[] = [
           <ul className="space-y-1.5 text-sm">
             <li>לחשוב שסגירת חלון = סגירת התהליך תמיד (יש תהליכי רקע שממשיכים).</li>
             <li>להתעלם מ-Task Manager כשמשהו איטי — הוא הכלי הראשון לאבחון.</li>
-            <li>לבלבל &quot;תהליך תקוע&quot; עם &quot;מחשב תקוע&quot; — לרוב אפשר לסגור רק את התהליך הבעייתי.</li>
+            <li>לבלבל ”תהליך תקוע” עם ”מחשב תקוע” — לרוב אפשר לסגור רק את התהליך הבעייתי.</li>
           </ul>
         </div>
         <div className="rounded-xl border border-success/30 bg-success/5 p-4">

@@ -180,7 +180,7 @@ const SECTIONS: LessonSection[] = [
       <div>
         <p className="mb-3 text-sm text-muted">
           שנה את ה-system prompt וראה איך אותה שאלה בדיוק מניבה תשובה שונה לחלוטין. נסה: הוסף מגבלת
-          פורמט (&quot;החזר בדיוק 3 נקודות&quot;) וראה כמה הפלט נהיה צפוי יותר.
+          פורמט (”החזר בדיוק 3 נקודות”) וראה כמה הפלט נהיה צפוי יותר.
         </p>
         <PromptPlayground
           label="נסה: אנטומיית פרומפט"
@@ -214,9 +214,9 @@ const SECTIONS: LessonSection[] = [
         <div className="rounded-xl border border-danger/30 bg-danger/5 p-4">
           <p className="mb-2 font-bold text-danger">מה שובר מערכות בפועל</p>
           <ul className="space-y-1.5 text-sm">
-            <li>Format מוגדר במילים (&quot;תחזיר JSON&quot;) בלי דוגמה מדויקת — עובד ב-90% ונשבר בקצה.</li>
+            <li>Format מוגדר במילים (”תחזיר JSON”) בלי דוגמה מדויקת — עובד ב-90% ונשבר בקצה.</li>
             <li>אין ולידציה של הפלט בקוד — סומכים על המודל במקום לאמת (schema) ולנסות שוב.</li>
-            <li>System prompt שגדל עם הזמן ל&quot;קיר טקסט&quot; עם כללים סותרים — המודל מתעלם מחלקם.</li>
+            <li>System prompt שגדל עם הזמן ל”קיר טקסט” עם כללים סותרים — המודל מתעלם מחלקם.</li>
             <li>בדיקה על קלט 'נקי' אחד בלבד, לא על קלטים אמיתיים, מבולגנים וקצה.</li>
           </ul>
         </div>
@@ -301,8 +301,8 @@ const SECTIONS: LessonSection[] = [
       <div className="rounded-xl bg-primary/5 p-4 text-sm">
         <p className="font-semibold">שיעורי בית:</p>
         <p className="mt-1 text-muted">
-          במעבדה למעלה, כתוב system prompt שהופך את העוזר ל&quot;נציג מכירות נלהב&quot; במקום תמיכה טכנית,
-          ושלח את אותה שאלה. אחר כך הוסף מגבלת פורמט מפורשת (&quot;בדיוק 3 נקודות, כל אחת עד 12 מילים&quot;)
+          במעבדה למעלה, כתוב system prompt שהופך את העוזר ל”נציג מכירות נלהב” במקום תמיכה טכנית,
+          ושלח את אותה שאלה. אחר כך הוסף מגבלת פורמט מפורשת (”בדיוק 3 נקודות, כל אחת עד 12 מילים”)
           והשווה כמה הפלט נעשה צפוי יותר.
         </p>
         <p className="mt-3 font-semibold">מוביל לשיעור הבא:</p>

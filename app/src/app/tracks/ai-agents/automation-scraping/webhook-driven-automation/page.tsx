@@ -222,11 +222,11 @@ const SECTIONS: LessonSection[] = [
         <div className="rounded-xl border border-danger/30 bg-danger/5 p-4">
           <p className="mb-2 font-bold text-danger">מה שובר בפועל</p>
           <ul className="space-y-1.5 text-sm">
-            <li>אין אימות חתימה — כל אחד יכול לזייף &quot;אירועים&quot; ולהפעיל את הלוגיקה שלך.</li>
+            <li>אין אימות חתימה — כל אחד יכול לזייף ”אירועים” ולהפעיל את הלוגיקה שלך.</li>
             <li>אין idempotency — אירוע שהגיע פעמיים גורם לחיוב כפול או לשתי תשובות ללקוח.</li>
             <li>handler איטי שמעבד לפני שהוא מחזיר 200 — timeout אצל הספק, ואז סופת retries.</li>
             <li>מחזירים 500 על אירוע לא-מוכר — הספק מנסה שוב לנצח, והתור נסתם.</li>
-            <li>webhook נכשל בשקט ואף אחד לא מנטר — אירועים פשוט &quot;נעלמים&quot;.</li>
+            <li>webhook נכשל בשקט ואף אחד לא מנטר — אירועים פשוט ”נעלמים”.</li>
           </ul>
         </div>
         <div className="rounded-xl border border-success/30 bg-success/5 p-4">
@@ -319,7 +319,7 @@ const SECTIONS: LessonSection[] = [
         <p className="mt-3 font-semibold">מוביל לשיעור הבא:</p>
         <p className="mt-1 text-muted">
           עכשיו שאתה מבין אימות, idempotency ועיבוד אסינכרוני — בפרויקט המודול תממש בדיוק endpoint כזה
-          ל-AtlasDesk, שמקבל אירוע &apos;פנייה חדשה&apos; ומייצר טיוטת תשובה אוטומטית מה-RAG הקיים.
+          ל-AtlasDesk, שמקבל אירוע ’פנייה חדשה’ ומייצר טיוטת תשובה אוטומטית מה-RAG הקיים.
         </p>
       </div>
     ),

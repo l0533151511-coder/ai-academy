@@ -62,7 +62,7 @@ const SECTIONS: LessonSection[] = [
         <div className="rounded-xl border border-border bg-card p-4">
           <p className="mb-1 font-bold text-primary">הנימוק ההנדסי (why this project)</p>
           <p className="text-muted">
-            כל מה שלמדת לאורך 6 המודולים חי כרגע &quot;בראש שלך&quot; ובהיסטוריית שיחות מפוזרת. הפרויקט הזה
+            כל מה שלמדת לאורך 6 המודולים חי כרגע ”בראש שלך” ובהיסטוריית שיחות מפוזרת. הפרויקט הזה
             הופך את הידע הסמוי הזה לנכס מפורש: prompt-library ו-CONTRIBUTING.md שכל מפתח עתידי
             (כולל אתה בעוד חצי שנה) יכול לפתוח ולעבוד לפיו מהיום הראשון — בלי לגלות מחדש את מה שכבר עבד.
           </p>

@@ -172,10 +172,10 @@ const SECTIONS: LessonSection[] = [
         <div className="rounded-xl border border-danger/30 bg-danger/5 p-4">
           <p className="mb-2 font-bold text-danger">מה שובר מערכות בפועל</p>
           <ul className="space-y-1.5 text-sm">
-            <li>פרומפט &quot;תסדר את כל הקוד&quot; ל-Claude Code — עשרות קבצים משתנים, אי אפשר לבודד מה נשבר.</li>
-            <li>מריצים build אחרי ה-refactoring וסומכים ש&quot;ירוק&quot; = &quot;בטוח&quot; — אבל build לא בודק התנהגות.</li>
+            <li>פרומפט ”תסדר את כל הקוד” ל-Claude Code — עשרות קבצים משתנים, אי אפשר לבודד מה נשבר.</li>
+            <li>מריצים build אחרי ה-refactoring וסומכים ש”ירוק” = ”בטוח” — אבל build לא בודק התנהגות.</li>
             <li>refactoring על קוד בלי טסטים, בלי לתעד קודם מה ההתנהגות הנוכחית.</li>
-            <li>מאשרים את ה-diff של Claude Code &quot;על עיוור&quot; כי הוא נראה סביר.</li>
+            <li>מאשרים את ה-diff של Claude Code ”על עיוור” כי הוא נראה סביר.</li>
           </ul>
         </div>
         <div className="rounded-xl border border-success/30 bg-success/5 p-4">
@@ -248,7 +248,7 @@ const SECTIONS: LessonSection[] = [
         <ol className="list-decimal space-y-1.5 pr-5">
           <li>Refactoring = <strong>שינוי מבנה בלי שינוי התנהגות</strong>. אם ההתנהגות זזה — זה כבר לא refactoring.</li>
           <li><strong>תוכנית לפני עריכה</strong>: בקש מ-Claude Code להסביר צעדים במילים — זול לקרוא, זול לתקן.</li>
-          <li><strong>צעד קטן והפיך</strong> בכל פעם. &quot;refactor הכל&quot; זה פרומפט מסוכן.</li>
+          <li><strong>צעד קטן והפיך</strong> בכל פעם. ”refactor הכל” זה פרומפט מסוכן.</li>
           <li><strong>אמת התנהגות</strong>, לא רק build. אין טסטים? כתוב characterization test קודם.</li>
         </ol>
       </div>
@@ -268,7 +268,7 @@ const SECTIONS: LessonSection[] = [
         <p className="mt-3 font-semibold">מוביל לשיעור הבא:</p>
         <p className="mt-1 text-muted">
           ראית שרשת ביטחון (טסט/אימות) היא מה שהופך refactoring לבטוח? בשיעור הבא — Debugging יעיל —
-          נראה איך אותו עיקרון של &quot;הקשר מדויק לפני פעולה&quot; הופך גם את איתור הבאגים למהיר פי כמה.
+          נראה איך אותו עיקרון של ”הקשר מדויק לפני פעולה” הופך גם את איתור הבאגים למהיר פי כמה.
         </p>
       </div>
     ),

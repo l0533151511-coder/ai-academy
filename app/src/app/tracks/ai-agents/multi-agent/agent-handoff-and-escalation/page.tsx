@@ -151,7 +151,7 @@ const SECTIONS: LessonSection[] = [
     content: (
       <div>
         <p className="mb-4 text-sm text-muted">
-          handoff תקין הוא לא רק &quot;תעביר לסוכן אחר&quot; — הוא רצף של ארבעה שלבים, כשכל דילוג על אחד מהם
+          handoff תקין הוא לא רק ”תעביר לסוכן אחר” — הוא רצף של ארבעה שלבים, כשכל דילוג על אחד מהם
           שובר את החוויה או את הבטיחות. עבור על השלבים:
         </p>
         <StepDiagram steps={HANDOFF_STEPS} />
@@ -211,11 +211,11 @@ const SECTIONS: LessonSection[] = [
         <div className="rounded-xl border border-danger/30 bg-danger/5 p-4">
           <p className="mb-2 font-bold text-danger">מה שובר מערכות בפועל</p>
           <ul className="space-y-1.5 text-sm">
-            <li>handoff שמעביר רק &quot;זו שאלת חיוב&quot; בלי היסטוריה — המומחה מבקש מהלקוח לחזור על הכל.</li>
+            <li>handoff שמעביר רק ”זו שאלת חיוב” בלי היסטוריה — המומחה מבקש מהלקוח לחזור על הכל.</li>
             <li>לולאת handoff: כללי↔מומחה מעבירים זה לזה בלי בעלים סופי ובלי תקרת העברות — הפנייה נתקעת.</li>
-            <li>אסקלציה מאוחרת: הכללי מנחש וטועה 3 פעמים לפני שהוא &apos;מוותר&apos; ומעביר.</li>
+            <li>אסקלציה מאוחרת: הכללי מנחש וטועה 3 פעמים לפני שהוא ’מוותר’ ומעביר.</li>
             <li>סוכן שמבצע פעולה בלתי-הפיכה (זיכוי) בביטחון נמוך במקום לעצור ולשאול אדם.</li>
-            <li>בונים רב-סוכני &quot;כי זה מתקדם&quot; כשסוכן בודד עדיין עובד מצוין — over-engineering.</li>
+            <li>בונים רב-סוכני ”כי זה מתקדם” כשסוכן בודד עדיין עובד מצוין — over-engineering.</li>
           </ul>
         </div>
         <div className="rounded-xl border border-success/30 bg-success/5 p-4">
@@ -303,7 +303,7 @@ const SECTIONS: LessonSection[] = [
         <p className="font-semibold">שיעורי בית:</p>
         <p className="mt-1 text-muted">
           חשוב על חוויית העברת שיחה שהייתה לך עם תמיכה אנושית (טובה או גרועה). מה הפך אותה לטובה או
-          גרועה? כתוב במפורש איזה &quot;context&quot; הנציג הראשון היה צריך להעביר לשני — זה בדיוק מה שצריך
+          גרועה? כתוב במפורש איזה ”context” הנציג הראשון היה צריך להעביר לשני — זה בדיוק מה שצריך
           לשחזר (או להימנע ממנו) ב-handoff בין סוכני AI. הוסף: איזו פעולה בשיחה ההיא הייתה צריכה
           לעבור אישור אדם לפני ביצוע?
         </p>

@@ -200,9 +200,9 @@ const SECTIONS: LessonSection[] = [
         <div className="rounded-xl border border-danger/30 bg-danger/5 p-4">
           <p className="mb-2 font-bold text-danger">מה שובר מערכות בפועל</p>
           <ul className="space-y-1.5 text-sm">
-            <li>בונים רב-סוכני &quot;כי זה מתקדם&quot; בלי שיש התמחויות שמצדיקות זאת — over-engineering קלאסי.</li>
+            <li>בונים רב-סוכני ”כי זה מתקדם” בלי שיש התמחויות שמצדיקות זאת — over-engineering קלאסי.</li>
             <li>orchestrator כבד שמכיל את כל ידע התחומים — שילמת על הריבוי בלי לקבל prompts קטנים.</li>
-            <li>מריצים &quot;במקביל&quot; משימות שבעצם תלויות זו בזו — התוצאה לא-עקבית או שגויה.</li>
+            <li>מריצים ”במקביל” משימות שבעצם תלויות זו בזו — התוצאה לא-עקבית או שגויה.</li>
             <li>אין שלב הרכבה: תוצאות ה-workers נדבקות זו לזו בלי בדיקת קונפליקט/עקביות.</li>
             <li>אין logging פר-שלב — כשהתשובה יוצאת מוזרה אי אפשר לדעת איזה סוכן אשם.</li>
           </ul>
@@ -290,8 +290,8 @@ const SECTIONS: LessonSection[] = [
       <div className="rounded-xl bg-primary/5 p-4 text-sm">
         <p className="font-semibold">שיעורי בית:</p>
         <p className="mt-1 text-muted">
-          חשוב על מוצר AI שאתה מכיר (עוזר קוד, צ&apos;אטבוט תמיכה). האם יש לו (או שהיה כדאי שיהיה לו)
-          יותר מ&quot;סוכן&quot; אחד? איזו תבנית הייתה הכי מתאימה — ומה היה ה-trade-off שהמעצבים שלו שילמו
+          חשוב על מוצר AI שאתה מכיר (עוזר קוד, צ’אטבוט תמיכה). האם יש לו (או שהיה כדאי שיהיה לו)
+          יותר מ”סוכן” אחד? איזו תבנית הייתה הכי מתאימה — ומה היה ה-trade-off שהמעצבים שלו שילמו
           עליה? נסה לזהות מקרה אחד שבו סוכן בודד היה עדיף למרות הפיתוי לפצל.
         </p>
         <p className="mt-3 font-semibold">מוביל לשיעור הבא:</p>

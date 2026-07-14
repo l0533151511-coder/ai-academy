@@ -167,10 +167,10 @@ const SECTIONS: LessonSection[] = [
         <div className="rounded-xl border border-danger/30 bg-danger/5 p-4">
           <p className="mb-2 font-bold text-danger">מה שובר מערכות בפועל</p>
           <ul className="space-y-1.5 text-sm">
-            <li>בונים MCP server מלא כי &quot;זה הטרנד&quot;, כשלאפליקציה בודדת מספיק tool calling מובנה — מורכבות תפעולית בלי תועלת.</li>
+            <li>בונים MCP server מלא כי ”זה הטרנד”, כשלאפליקציה בודדת מספיק tool calling מובנה — מורכבות תפעולית בלי תועלת.</li>
             <li>שוכחים ש-MCP server הוא תהליך שצריך לרוץ, לנטר ולעדכן — בפרודקשן הוא נקודת-כשל נוספת שנופלת בשקט.</li>
             <li>מחברים שרת MCP צד-שלישי לא-מוכר בלי לבדוק אילו כלים הוא חושף ובאיזה כוח — כמו להתקין dependency עיוור.</li>
-            <li>מבלבלים בין Resources (קריאת מידע) ל-Tools (פעולה) ומגדירים כלי-כתיבה כ&quot;resource&quot; תמים.</li>
+            <li>מבלבלים בין Resources (קריאת מידע) ל-Tools (פעולה) ומגדירים כלי-כתיבה כ”resource” תמים.</li>
           </ul>
         </div>
         <div className="rounded-xl border border-success/30 bg-success/5 p-4">

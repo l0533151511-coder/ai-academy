@@ -163,8 +163,8 @@ const SECTIONS: LessonSection[] = [
         <div className="rounded-xl border border-danger/30 bg-danger/5 p-4">
           <p className="mb-2 font-bold text-danger">טעויות נפוצות</p>
           <ul className="space-y-1.5 text-sm">
-            <li>לחשוב ש&quot;יותר ליבות CPU&quot; תמיד אומר &quot;יותר מהיר&quot; — תלוי אם הקוד מקבילי.</li>
-            <li>לבלבל בין RAM לאחסון (&quot;יש לי 512GB זיכרון&quot; — זה כנראה אחסון, לא RAM).</li>
+            <li>לחשוב ש”יותר ליבות CPU” תמיד אומר ”יותר מהיר” — תלוי אם הקוד מקבילי.</li>
+            <li>לבלבל בין RAM לאחסון (”יש לי 512GB זיכרון” — זה כנראה אחסון, לא RAM).</li>
             <li>להניח שסגירת תוכנית משחררת זיכרון מיידית תמיד — לפעמים יש עיכוב/cache.</li>
           </ul>
         </div>
@@ -258,8 +258,8 @@ const SECTIONS: LessonSection[] = [
         </p>
         <p className="mt-3 font-semibold">מיני-פרויקט (מוביל לפרויקט המודול):</p>
         <p className="mt-1 text-muted">
-          בשיעור הבא נבנה יחד &quot;מחשב צעצוע&quot; ויזואלי בדפדפן — תכין רשימה של 3 פקודות פשוטות שהיית
-          רוצה שהוא ידע לבצע (למשל: &quot;שמור מספר&quot;, &quot;חבר שני מספרים&quot;).
+          בשיעור הבא נבנה יחד ”מחשב צעצוע” ויזואלי בדפדפן — תכין רשימה של 3 פקודות פשוטות שהיית
+          רוצה שהוא ידע לבצע (למשל: ”שמור מספר”, ”חבר שני מספרים”).
         </p>
       </div>
     ),

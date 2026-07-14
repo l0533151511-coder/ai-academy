@@ -217,7 +217,7 @@ const SECTIONS: LessonSection[] = [
         <div className="rounded-xl border border-danger/30 bg-danger/5 p-4">
           <p className="mb-2 font-bold text-danger">מה שובר הערכת RAG בפועל</p>
           <ul className="space-y-1.5 text-sm">
-            <li>מודדים רק &quot;התשובה נשמעה טובה&quot; — מדד סובייקטיבי שמסתיר איזה שלב נכשל.</li>
+            <li>מודדים רק ”התשובה נשמעה טובה” — מדד סובייקטיבי שמסתיר איזה שלב נכשל.</li>
             <li>לא מפרידים retrieval מ-generation — מתקנים את הרכיב הלא-נכון וחוזרים על הטעות.</li>
             <li>eval set כולו שאלות קלות עם כיסוי מלא — לא בודק את המקרה הקריטי של שאלה בלי כיסוי.</li>
             <li>סומכים על תשובה שוטפת ומשכנעת בלי לבדוק שהיא באמת נתמכת ב-context שנשלף.</li>
@@ -295,7 +295,7 @@ const SECTIONS: LessonSection[] = [
           <Layers size={16} className="text-primary" /> מה שחשוב לזכור
         </p>
         <ol className="list-decimal space-y-1.5 pr-5">
-          <li><strong>&quot;נשמע טוב&quot; זה לא מדד.</strong> תשובה שוטפת יכולה להישען על context שגוי — הכישלון המסוכן ביותר כי הוא לא נראה ככישלון.</li>
+          <li><strong>”נשמע טוב” זה לא מדד.</strong> תשובה שוטפת יכולה להישען על context שגוי — הכישלון המסוכן ביותר כי הוא לא נראה ככישלון.</li>
           <li>שני שלבים, שני כשלים: <strong>Retrieval</strong> (לא נשלף המידע הנכון) מול <strong>Generation/Faithfulness</strong> (נשלף אך המודל סטה ממנו).</li>
           <li>מודדים אותם <strong>בנפרד</strong>: recall@k / precision@k ל-retrieval, faithfulness / answer-relevance ל-generation — כדי לתקן את הרכיב הנכון.</li>
           <li>בונים <strong>eval set</strong> קטן (כולל שאלות ללא כיסוי) ומריצים אותו כבדיקת רגרסיה לפני כל שינוי ב-pipeline.</li>
@@ -311,8 +311,8 @@ const SECTIONS: LessonSection[] = [
         <p className="font-semibold">שיעורי בית:</p>
         <p className="mt-1 text-muted">
           נסח 5 שאלות מקרה-קצה למערכת RAG שאתה מכיר או בונה — שאלות שבכוונה לא מכוסות במלואן
-          במסמכים הקיימים. לכל שאלה רשום מה התשובה ה&quot;נכונה&quot; היא (לרוב: &quot;אין לי מידע על כך&quot;).
-          אלו יהיו &quot;בדיקות רגרסיה&quot; שתוכל לחזור אליהן בכל פעם שאתה משנה את ה-pipeline.
+          במסמכים הקיימים. לכל שאלה רשום מה התשובה ה”נכונה” היא (לרוב: ”אין לי מידע על כך”).
+          אלו יהיו ”בדיקות רגרסיה” שתוכל לחזור אליהן בכל פעם שאתה משנה את ה-pipeline.
         </p>
         <p className="mt-3 font-semibold">מוביל לשיעור הבא:</p>
         <p className="mt-1 text-muted">

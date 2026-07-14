@@ -110,7 +110,7 @@ const SECTIONS: LessonSection[] = [
         <p className="font-semibold">סיימת את מודול התכנון והארכיטקטורה!</p>
         <p className="mt-1 text-muted">
           AtlasDesk עכשיו שומר שיחות — פיצ'ר production אמיתי, שתוכנן ומומש בתהליך הנדסי מלא.
-          במודול הבא נעבור לתהליכי הפיתוח הליבתיים: בניית פיצ&apos;רים מאפס, refactoring בטוח,
+          במודול הבא נעבור לתהליכי הפיתוח הליבתיים: בניית פיצ’רים מאפס, refactoring בטוח,
           debugging, ו-TDD — עם Claude Code כשותף עבודה יומיומי.
         </p>
       </div>

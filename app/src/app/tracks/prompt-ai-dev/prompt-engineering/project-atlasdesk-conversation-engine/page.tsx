@@ -58,7 +58,7 @@ const SECTIONS: LessonSection[] = [
         <Sparkles size={28} className="mx-auto mb-3 text-primary" />
         <p className="mb-4 text-sm text-muted">
           AtlasDesk רץ כעמוד עצמאי באתר (לא בתוך מסגרת השיעור) — כדי שתרגיש שאתה משתמש במוצר אמיתי,
-          לא בדוגמת קוד. פתח אותו, שוחח איתו, ולחץ &quot;מצב מפתח&quot; כדי לראות עלות אמיתית לכל הודעה.
+          לא בדוגמת קוד. פתח אותו, שוחח איתו, ולחץ ”מצב מפתח” כדי לראות עלות אמיתית לכל הודעה.
         </p>
         <Link
           href="/atlasdesk"
@@ -92,10 +92,10 @@ const SECTIONS: LessonSection[] = [
         <p className="mb-2 font-bold text-primary">ה-trade-off המרכזי של v0.1</p>
         <p className="text-muted">
           בגרסה הזו זהות הבוט וכללי-ההתנהגות שלו יושבים ב-system prompt קבוע ב-config. זו החלטה
-          מכוונת: היא פשוטה, ניתנת-לגרסא, וקלה לבדיקה — מושלמת ל-v0.1. המחיר: כל &quot;עובדה&quot;
+          מכוונת: היא פשוטה, ניתנת-לגרסא, וקלה לבדיקה — מושלמת ל-v0.1. המחיר: כל ”עובדה”
           שהבוט צריך (מדיניות, מחירים, נתוני לקוח) מקודדת ידנית, ולכן הוא עדיין עלול להמציא כשנשאל
           על משהו שאינו בפרומפט. זו בדיוק המגבלה שהשיעורים על Grounding ו-RAG פותרים — מעבר
-          מ&quot;ידע מוטמע בפרומפט&quot; ל&quot;שליפה ממקור-אמת חיצוני&quot;. בחרנו במפורש לא לפתור
+          מ”ידע מוטמע בפרומפט” ל”שליפה ממקור-אמת חיצוני”. בחרנו במפורש לא לפתור
           זאת עכשיו כדי לשמור את הפרויקט הראשון קטן, מובן, ומוכן-להרצה.
         </p>
       </div>
@@ -125,7 +125,7 @@ const SECTIONS: LessonSection[] = [
     content: (
       <div className="rounded-xl bg-card p-5 text-sm">
         <div className="mb-2 flex items-center gap-2 font-bold">
-          <Trophy size={18} className="text-warning" /> מה כיסינו במודול &quot;הנדסת Prompt מקצועית&quot;
+          <Trophy size={18} className="text-warning" /> מה כיסינו במודול ”הנדסת Prompt מקצועית”
         </div>
         <ul className="space-y-1.5">
           <li>✅ אנטומיית פרומפט, system prompt מול הודעת משתמש — עם Prompt Playground חי</li>

@@ -132,7 +132,7 @@ const SECTIONS: LessonSection[] = [
     label: "סיכום המודול",
     content: (
       <div className="rounded-xl bg-card p-5 text-sm">
-        <p className="mb-2 font-bold">מה כיסינו במודול &quot;איך האינטרנט עובד&quot;</p>
+        <p className="mb-2 font-bold">מה כיסינו במודול ”איך האינטרנט עובד”</p>
         <ul className="space-y-1.5">
           <li>✅ כתובות IP ו-DNS — איך שם דומיין הופך לכתובת שאפשר לפנות אליה</li>
           <li>✅ פרוטוקול HTTP/HTTPS — אנטומיה של בקשה ותגובה, קודי סטטוס</li>
@@ -141,7 +141,7 @@ const SECTIONS: LessonSection[] = [
           <li>✅ חיברת הכל למסע אחד רציף ובחנת אותו בעצמך במעבדה</li>
         </ul>
         <p className="mt-3 text-muted">
-          במודול הבא (&quot;טרמינל ו-Linux&quot;) נעבור מהבנת התשתית לשליטה ישירה במחשב דרך שורת הפקודה —
+          במודול הבא (”טרמינל ו-Linux”) נעבור מהבנת התשתית לשליטה ישירה במחשב דרך שורת הפקודה —
           הכלי שבו כל מפתח מקצועי חי.
         </p>
       </div>

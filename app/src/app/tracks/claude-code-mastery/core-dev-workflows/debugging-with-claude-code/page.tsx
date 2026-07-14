@@ -170,7 +170,7 @@ src/components/lesson/lesson-shell.tsx במלואם, והצע 2-3 השערות
         <div className="rounded-xl border border-danger/30 bg-danger/5 p-4">
           <p className="mb-2 font-bold text-danger">מה שובר מערכות בפועל</p>
           <ul className="space-y-1.5 text-sm">
-            <li>מדווחים &quot;זה לא עובד&quot; בלי לתאר את ההתנהגות הצפויה או repro.</li>
+            <li>מדווחים ”זה לא עובד” בלי לתאר את ההתנהגות הצפויה או repro.</li>
             <li>מקבלים את התיקון הראשון של Claude Code בלי לאשש את ההשערה שמאחוריו.</li>
             <li>מתקנים תסמין (optional chaining שמסתיר undefined) במקום את השורש.</li>
             <li>לא כותבים טסט-רגרסיה — הבאג חוזר בשקט חצי שנה אחר כך.</li>
@@ -243,7 +243,7 @@ src/components/lesson/lesson-shell.tsx במלואם, והצע 2-3 השערות
           <Layers size={16} className="text-primary" /> מה שחשוב לזכור
         </p>
         <ol className="list-decimal space-y-1.5 pr-5">
-          <li><strong>&apos;זה לא עובד&apos; חסר-תועלת</strong>. תן שלישייה: התנהגות בפועל מול צפויה, repro, והקשר/שגיאה מלאה.</li>
+          <li><strong>’זה לא עובד’ חסר-תועלת</strong>. תן שלישייה: התנהגות בפועל מול צפויה, repro, והקשר/שגיאה מלאה.</li>
           <li><strong>היפותזות לפני תיקון</strong>: הפרד אבחון מפעולה כדי לא לטפל בתסמין.</li>
           <li><strong>טסט שמשחזר את הבאג</strong> הופך אותו לקריטריון אובייקטיבי ומונע רגרסיה.</li>
           <li><strong>קרא את ה-diff</strong> ואמת בדפדפן — תיקון עלול לסגור דבר אחד ולשבור אחר.</li>

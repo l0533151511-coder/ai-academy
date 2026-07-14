@@ -168,7 +168,7 @@ const SECTIONS: LessonSection[] = [
       <div>
         <p className="mb-4 text-sm text-muted">
           הערכה אמינה היא תהליך, לא הרצה בודדת. עבור על החמישה — הפרה של כל אחד מהם היא דרך קלאסית
-          &quot;להוכיח&quot; שיפור מדומה:
+          ”להוכיח” שיפור מדומה:
         </p>
         <StepDiagram steps={EVAL_STEPS} />
       </div>
@@ -225,9 +225,9 @@ const SECTIONS: LessonSection[] = [
           <p className="mb-2 font-bold text-danger">מה שובר מערכות בפועל</p>
           <ul className="space-y-1.5 text-sm">
             <li>מודדים על סט האימון בלבד — overfitting נשאר בלתי-נראה עד הפרודקשן.</li>
-            <li>משווים מול מודל בסיסי &quot;ערום&quot; במקום מול baseline הוגן — כל fine-tuning &quot;מנצח&quot;.</li>
+            <li>משווים מול מודל בסיסי ”ערום” במקום מול baseline הוגן — כל fine-tuning ”מנצח”.</li>
             <li>לא בודקים משימות מחוץ להתמחות — catastrophic forgetting מתגלה מתלונות משתמשים.</li>
-            <li>human eval לא-עיוור — המדרג יודע מי המודל &quot;שלו&quot; ומטה את הדירוג.</li>
+            <li>human eval לא-עיוור — המדרג יודע מי המודל ”שלו” ומטה את הדירוג.</li>
             <li>מודדים פעם אחת בהשקה ולא שוב — drift שוחק את הביצועים בשקט.</li>
           </ul>
         </div>
@@ -300,7 +300,7 @@ const SECTIONS: LessonSection[] = [
           <Repeat size={16} className="text-primary" /> מה שחשוב לזכור
         </p>
         <ol className="list-decimal space-y-1.5 pr-5">
-          <li>מדוד תמיד על <strong>סט בדיקה נפרד</strong> — סט האימון תמיד &quot;נראה מצוין&quot; ומסתיר overfitting.</li>
+          <li>מדוד תמיד על <strong>סט בדיקה נפרד</strong> — סט האימון תמיד ”נראה מצוין” ומסתיר overfitting.</li>
           <li>ה-<strong>baseline ההוגן</strong> הוא מודל בסיסי + prompt טוב, לא מודל ערום.</li>
           <li>בדוק גם <strong>מחוץ להתמחות</strong> — כדי לתפוס catastrophic forgetting.</li>
           <li>ההכרעה <strong>כלכלית</strong>: שיפור זעום עם תחזוקה יקרה יכול להיות עסקה גרועה.</li>

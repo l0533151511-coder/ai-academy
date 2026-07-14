@@ -170,9 +170,9 @@ const SECTIONS: LessonSection[] = [
         <div className="rounded-xl border border-danger/30 bg-danger/5 p-4">
           <p className="mb-2 font-bold text-danger">מה שובר מערכות בפועל</p>
           <ul className="space-y-1.5 text-sm">
-            <li>פרומפט מעורפל (&quot;תוסיף עמוד X&quot;) — Claude Code מנחש עשרות החלטות שלא התכוונת אליהן.</li>
+            <li>פרומפט מעורפל (”תוסיף עמוד X”) — Claude Code מנחש עשרות החלטות שלא התכוונת אליהן.</li>
             <li>מדלגים על שלד ומקבלים מימוש מלא שמבוסס על ממשק שגוי — כתיבה-מחדש יקרה.</li>
-            <li>&quot;build עובר&quot; מתייחסים אליו כאילו הוא מוכיח נכונות — הוא מוכיח רק קומפילציה.</li>
+            <li>”build עובר” מתייחסים אליו כאילו הוא מוכיח נכונות — הוא מוכיח רק קומפילציה.</li>
             <li>מאשרים diff גדול בלי לקרוא, כי אין כוח לפענח 300 שורות.</li>
           </ul>
         </div>

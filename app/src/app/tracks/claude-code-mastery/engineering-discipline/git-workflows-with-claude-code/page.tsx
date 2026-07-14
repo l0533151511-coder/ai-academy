@@ -202,11 +202,11 @@ actually saves — button never flipped to 'completed'"`,
             <ShieldAlert size={16} /> מה שובר מערכות בפועל
           </p>
           <ul className="space-y-1.5 text-sm">
-            <li>&apos;git add . &amp;&amp; commit&apos; על שינוי של סוכן שלא נקרא — קוד שאתה חותם עליו בלי להבין.</li>
+            <li>’git add . && commit’ על שינוי של סוכן שלא נקרא — קוד שאתה חותם עליו בלי להבין.</li>
             <li>commit ענק שמערבב חמישה שינויים לוגיים — בלתי-אפשרי לסקור, ומקלקל את git bisect.</li>
             <li>הרצת פעולת git שהסוכן הציע (reset --hard, push --force) בלי להבין מה היא מוחקת.</li>
             <li>עבודה ישירות על main על רפקטור גדול של סוכן — אין לאן לחזור כשחצי ממנו שגוי.</li>
-            <li>הודעות גנריות (&apos;update&apos;, &apos;wip&apos;) — בעוד חודש אף אחד לא זוכר מה זה היה.</li>
+            <li>הודעות גנריות (’update’, ’wip’) — בעוד חודש אף אחד לא זוכר מה זה היה.</li>
           </ul>
         </div>
         <div className="rounded-xl border border-success/30 bg-success/5 p-4">
@@ -215,7 +215,7 @@ actually saves — button never flipped to 'completed'"`,
           </p>
           <ul className="space-y-1.5 text-sm">
             <li>קוראים את git diff המלא לפני כל קימוט — הסקירה היא שלך, לא של הסוכן.</li>
-            <li>commits קטנים ותכופים, כל אחד יחידה לוגית אחת עם &apos;מה+למה&apos;.</li>
+            <li>commits קטנים ותכופים, כל אחד יחידה לוגית אחת עם ’מה+למה’.</li>
             <li>נותנים ל-Claude Code לנסח הודעת commit/PR — ומשפרים אותה, לא מאשרים עיוור.</li>
             <li>עובדים ב-branch נפרד לשינויים גדולים; main נשאר תמיד יציב.</li>
             <li>מבינים כל פעולת git לפני שמריצים אותה — במיוחד את ההרסניות.</li>
@@ -256,13 +256,13 @@ actually saves — button never flipped to 'completed'"`,
       <div className="rounded-xl bg-primary/5 p-4 text-sm">
         <p className="font-semibold">שיעורי בית:</p>
         <p className="mt-1 text-muted">
-          בקומיט הבא שלך (בכל פרויקט), נסה במודע לכתוב שורה אחת של &apos;למה&apos; לפני שאתה כותב &apos;מה&apos;,
-          ותמיד להריץ &apos;git diff&apos; לפני הקימוט. שים לב אם הסקירה תפסה משהו שהיית מקמט אחרת עיוור.
+          בקומיט הבא שלך (בכל פרויקט), נסה במודע לכתוב שורה אחת של ’למה’ לפני שאתה כותב ’מה’,
+          ותמיד להריץ ’git diff’ לפני הקימוט. שים לב אם הסקירה תפסה משהו שהיית מקמט אחרת עיוור.
         </p>
         <p className="mt-3 font-semibold">מוביל לשיעור הבא:</p>
         <p className="mt-1 text-muted">
-          git log שומר את ה&apos;למה&apos; של כל שינוי — אבל מה עם ההחלטות הגדולות שלא נכנסות לקומיט אחד?
-          בשיעור הבא, &quot;תהליכי תיעוד תוך כדי עבודה&quot;, נלמד לתעד החלטות ארכיטקטוניות כשההקשר עוד טרי.
+          git log שומר את ה’למה’ של כל שינוי — אבל מה עם ההחלטות הגדולות שלא נכנסות לקומיט אחד?
+          בשיעור הבא, ”תהליכי תיעוד תוך כדי עבודה”, נלמד לתעד החלטות ארכיטקטוניות כשההקשר עוד טרי.
         </p>
       </div>
     ),

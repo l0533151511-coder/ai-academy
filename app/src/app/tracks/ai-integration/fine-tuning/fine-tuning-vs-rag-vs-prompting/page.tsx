@@ -174,7 +174,7 @@ const SECTIONS: LessonSection[] = [
     content: (
       <div>
         <p className="mb-4 text-sm text-muted">
-          זה לב השיעור: עץ החלטה שמנחה מהזול ליקר. השאלה בכל צומת היא &quot;מה בדיוק חסר&quot; —
+          זה לב השיעור: עץ החלטה שמנחה מהזול ליקר. השאלה בכל צומת היא ”מה בדיוק חסר” —
           ניסוח, ידע, או התנהגות. עבור על הצעדים לפי הסדר, ואל תדלג:
         </p>
         <StepDiagram steps={DECISION_STEPS} />
@@ -233,7 +233,7 @@ const SECTIONS: LessonSection[] = [
           <p className="mb-2 font-bold text-danger">מה שובר מערכות בפועל</p>
           <ul className="space-y-1.5 text-sm">
             <li>קופצים ל-fine-tuning לפני שמיצו system prompt — מורכבות ועלות מיותרות.</li>
-            <li>מנסים &quot;ללמד&quot; ידע שמשתנה דרך fine-tuning — המודל מזיז ומתיישן מיד.</li>
+            <li>מנסים ”ללמד” ידע שמשתנה דרך fine-tuning — המודל מזיז ומתיישן מיד.</li>
             <li>מאמנים על 30-50 דוגמאות — רעש במקום דפוס (overfitting).</li>
             <li>דאטה מלוכלך/לא-עקבי → פלט מותאם אך לא-עקבי, ומאשימים את המודל.</li>
             <li>לא מתמחרים את מחזור ה-re-tune — עלות התחזוקה מפתיעה אחר-כך.</li>
@@ -327,7 +327,7 @@ const SECTIONS: LessonSection[] = [
         </p>
         <p className="mt-3 font-semibold">מוביל לשיעור הבא:</p>
         <p className="mt-1 text-muted">
-          החלטת ש-fine-tuning מוצדק? עכשיו השאלה הקריטית: איך תדע שהוא באמת עבד ולא רק &quot;מרגיש&quot; טוב.
+          החלטת ש-fine-tuning מוצדק? עכשיו השאלה הקריטית: איך תדע שהוא באמת עבד ולא רק ”מרגיש” טוב.
           בשיעור הבא — הערכת מודלים מותאמים.
         </p>
       </div>

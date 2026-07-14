@@ -157,7 +157,7 @@ const SECTIONS: LessonSection[] = [
       <div className="rounded-xl bg-primary/5 p-4 text-sm">
         <p className="font-semibold">שיעורי בית:</p>
         <p className="mt-1 text-muted">
-          קח בקשה &quot;ענקית&quot; שהיית רוצה לבקש בעבר בבת אחת (בכל פרויקט) ופרק אותה בכתב
+          קח בקשה ”ענקית” שהיית רוצה לבקש בעבר בבת אחת (בכל פרויקט) ופרק אותה בכתב
           ל-4-6 צעדים לפני שאתה נוגע ב-Claude Code בכלל. שים לב כמה יותר ברור התהליך כשהוא כתוב
           מראש לעומת פירוק ספונטני תוך כדי עבודה.
         </p>

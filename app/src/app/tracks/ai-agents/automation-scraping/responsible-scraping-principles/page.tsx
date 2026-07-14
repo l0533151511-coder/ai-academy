@@ -211,8 +211,8 @@ const SECTIONS: LessonSection[] = [
           <ul className="space-y-1.5 text-sm">
             <li>scraper בלי rate limiting — נראה כ-DoS, ה-IP נחסם תוך שעות, ולפעמים גם פנייה משפטית.</li>
             <li>User-Agent אנונימי או מתחזה לדפדפן — סימן ראשון שנחסם, ומונע מבעל האתר לפנות אליך במקום.</li>
-            <li>התעלמות מ-robots.txt ומה-ToS — &quot;לא ידעתי&quot; אינו הגנה משפטית.</li>
-            <li>איסוף PII כי &quot;זה פומבי&quot; — התעלמות מ-GDPR וחוקי פרטיות שחלים על האחסון עצמו.</li>
+            <li>התעלמות מ-robots.txt ומה-ToS — ”לא ידעתי” אינו הגנה משפטית.</li>
+            <li>איסוף PII כי ”זה פומבי” — התעלמות מ-GDPR וחוקי פרטיות שחלים על האחסון עצמו.</li>
             <li>בלי cache — חזרה לשרת על אותו מידע, מעמיסה עליו וגם מייקרת ומאטה אותך.</li>
           </ul>
         </div>
@@ -288,7 +288,7 @@ const SECTIONS: LessonSection[] = [
           <li>API רשמי <strong>קודם</strong>. scraping הוא המוצא האחרון, לא הראשון.</li>
           <li>שלושה צירים שלובים: <strong>הנדסי</strong> (יציבות), <strong>אתי</strong> (לא להזיק) ו<strong>משפטי</strong> (ToS, PII).</li>
           <li>scraper אזרח-טוב: <strong>מזוהה, ממותן, ממוקד-cache, ומכבד robots.txt</strong>.</li>
-          <li>&apos;פומבי&apos; אינו &apos;מותר לכל שימוש&apos; — <strong>PII כפוף לחוקי פרטיות</strong> גם כשהוא גלוי.</li>
+          <li>’פומבי’ אינו ’מותר לכל שימוש’ — <strong>PII כפוף לחוקי פרטיות</strong> גם כשהוא גלוי.</li>
         </ol>
       </div>
     ),
@@ -305,8 +305,8 @@ const SECTIONS: LessonSection[] = [
         </p>
         <p className="mt-3 font-semibold">מוביל לשיעור הבא:</p>
         <p className="mt-1 text-muted">
-          ראית ש-API רשמי עדיף על &apos;למשוך&apos; מידע בעצמך. בשיעור הבא — אוטומציה מונעת-webhooks — נהפוך
-          את היוצרות: במקום שתשאל שוב ושוב &apos;יש חדש?&apos;, המערכת החיצונית תדחוף אליך את האירוע ברגע שהוא קורה.
+          ראית ש-API רשמי עדיף על ’למשוך’ מידע בעצמך. בשיעור הבא — אוטומציה מונעת-webhooks — נהפוך
+          את היוצרות: במקום שתשאל שוב ושוב ’יש חדש?’, המערכת החיצונית תדחוף אליך את האירוע ברגע שהוא קורה.
         </p>
       </div>
     ),

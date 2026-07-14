@@ -177,7 +177,7 @@ const SECTIONS: LessonSection[] = [
     content: (
       <div>
         <p className="mb-4 text-sm text-muted">
-          אין &quot;המדד הכי טוב&quot; — יש המדד הנכון <strong>לסוג הטעות שהכי יקר לך</strong>. עבור על
+          אין ”המדד הכי טוב” — יש המדד הנכון <strong>לסוג הטעות שהכי יקר לך</strong>. עבור על
           השאלות לפני שאתה בוחר:
         </p>
         <StepDiagram steps={METRIC_STEPS} />
@@ -250,7 +250,7 @@ const SECTIONS: LessonSection[] = [
             <li>מדווחים accuracy על נתונים לא-מאוזנים וחוגגים מודל שמפספס את מה שחשוב.</li>
             <li>מכווננים את הסף על מערך ה-test עצמו — דליפה שמנפחת את המספרים.</li>
             <li>מודדים רק offline ומניחים שזה מייצג פרודקשן — עד שהמשתמשים מתלוננים.</li>
-            <li>בוחרים מדד אחרי שרואים תוצאות (&quot;איזה מדד גורם לנו להיראות טוב?&quot;).</li>
+            <li>בוחרים מדד אחרי שרואים תוצאות (”איזה מדד גורם לנו להיראות טוב?”).</li>
           </ul>
         </div>
         <div className="rounded-xl border border-success/30 bg-success/5 p-4">
@@ -320,7 +320,7 @@ const SECTIONS: LessonSection[] = [
           <Layers size={16} className="text-primary" /> מה שחשוב לזכור
         </p>
         <ol className="list-decimal space-y-1.5 pr-5">
-          <li><strong>Accuracy משקר</strong> על נתונים לא-מאוזנים — גלאי שתמיד עונה &quot;שלילי&quot; מקבל ציון גבוה וחסר-ערך.</li>
+          <li><strong>Accuracy משקר</strong> על נתונים לא-מאוזנים — גלאי שתמיד עונה ”שלילי” מקבל ציון גבוה וחסר-ערך.</li>
           <li><strong>Precision</strong> — כשטעות-כוזבת יקרה. <strong>Recall</strong> — כשפספוס מסוכן. יש ביניהם <strong>trade-off</strong>.</li>
           <li><strong>F1</strong> — מדד יחיד לאיזון בין השניים, כשאף אחד לא ברור שיקר יותר.</li>
           <li>בוחרים מדד <strong>לפני</strong> האימון, לפי עלות סוג הטעות — ומודדים גם <strong>offline וגם online</strong>.</li>

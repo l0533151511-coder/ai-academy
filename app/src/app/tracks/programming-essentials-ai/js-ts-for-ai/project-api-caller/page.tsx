@@ -56,7 +56,7 @@ const SECTIONS: LessonSection[] = [
         <div className="mb-3 flex items-center gap-2 rounded-xl border border-primary/30 bg-primary/5 p-4 text-sm">
           <Trophy size={18} className="shrink-0 text-primary" />
           <span>
-            שנה את השאלה, ואז לחץ &quot;הרץ קריאה אמיתית&quot;. אם למנהל האתר מוגדר מפתח API, תקבל
+            שנה את השאלה, ואז לחץ ”הרץ קריאה אמיתית”. אם למנהל האתר מוגדר מפתח API, תקבל
             תשובה אמיתית מה-AI; אחרת תראה הודעה שקוראת לחיבור המפתח — גם זו תגובת API אמיתית, לא
             מזויפת.
           </span>
@@ -72,7 +72,7 @@ const SECTIONS: LessonSection[] = [
     content: (
       <div className="rounded-xl bg-card p-5 text-sm">
         <div className="mb-2 flex items-center gap-2 font-bold">
-          <Sparkles size={18} className="text-primary" /> מה כיסינו בטראק &quot;יסודות תכנות ל-AI&quot;
+          <Sparkles size={18} className="text-primary" /> מה כיסינו בטראק ”יסודות תכנות ל-AI”
         </div>
         <ul className="space-y-1.5">
           <li>✅ JavaScript: משתנים, פונקציות, מערכים ואובייקטים</li>

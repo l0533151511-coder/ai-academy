@@ -206,7 +206,7 @@ const SECTIONS: LessonSection[] = [
             <li>מדבגים את לוגיקת הכלי כשהבעיה בכלל בשכבת החיבור — הכלי מעולם לא נטען.</li>
             <li>סומכים על ה-path שהמודל שלח בלי ולידציה — path traversal מחכה לקרות.</li>
             <li>שרת שקורס בשקט ב-runtime — הלקוח פשוט לא רואה כלים, בלי שגיאה ברורה.</li>
-            <li>description עמום לכלי — המודל לא יודע מתי לקרוא לו, אז הוא &quot;לא עובד&quot; לכאורה.</li>
+            <li>description עמום לכלי — המודל לא יודע מתי לקרוא לו, אז הוא ”לא עובד” לכאורה.</li>
           </ul>
         </div>
         <div className="rounded-xl border border-success/30 bg-success/5 p-4">

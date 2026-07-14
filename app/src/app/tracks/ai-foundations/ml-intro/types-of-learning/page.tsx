@@ -157,7 +157,7 @@ const SECTIONS: LessonSection[] = [
     content: (
       <div>
         <p className="mb-4 text-sm text-muted">
-          לא בוחרים סוג למידה כי הוא &quot;מתקדם&quot; — בוחרים לפי <strong>מה שיש לך</strong>: תוויות?
+          לא בוחרים סוג למידה כי הוא ”מתקדם” — בוחרים לפי <strong>מה שיש לך</strong>: תוויות?
           נתונים גולמיים? סביבה עם פרס? עבור על עץ ההחלטה:
         </p>
         <StepDiagram steps={PARADIGM_STEPS} />
@@ -229,15 +229,15 @@ const SECTIONS: LessonSection[] = [
           <p className="mb-2 font-bold text-danger">מה שובר מערכות בפועל</p>
           <ul className="space-y-1.5 text-sm">
             <li>בוחרים למידה מונחית בלי לתמחר את חודשי התיוג — הפרויקט נתקע לפני שהתחיל.</li>
-            <li>מצפים מ-clustering (לא-מונחית) ל&quot;תשובה נכונה&quot; שאין לה, ואז מתאכזבים מה&quot;דיוק&quot;.</li>
+            <li>מצפים מ-clustering (לא-מונחית) ל”תשובה נכונה” שאין לה, ואז מתאכזבים מה”דיוק”.</li>
             <li>מגיעים ל-RL לבעיית סיווג פשוטה — מורכבות וחוסר-יציבות מיותרים.</li>
-            <li>מאמנים פעם אחת ושוכחים — העולם משתנה והמודל &quot;נרקב&quot; (drift) בשקט.</li>
+            <li>מאמנים פעם אחת ושוכחים — העולם משתנה והמודל ”נרקב” (drift) בשקט.</li>
           </ul>
         </div>
         <div className="rounded-xl border border-success/30 bg-success/5 p-4">
           <p className="mb-2 font-bold text-success">איך מקצוענים עושים זאת</p>
           <ul className="space-y-1.5 text-sm">
-            <li>מתאימים פרדיגמה לנתונים ולמשוב שיש, לא לאלגוריתם &quot;המגניב&quot;.</li>
+            <li>מתאימים פרדיגמה לנתונים ולמשוב שיש, לא לאלגוריתם ”המגניב”.</li>
             <li>משתמשים בלא-מונחית כדי לכוון היכן להשקיע את התיוג היקר של המונחית.</li>
             <li>מעדיפים self-supervised / transfer learning כדי לצמצם דרסטית את עלות התיוג.</li>
             <li>בונים pipeline לאיסוף תוויות שוטף ומרעננים את המודל מול drift.</li>
@@ -317,12 +317,12 @@ const SECTIONS: LessonSection[] = [
         <p className="font-semibold">שיעורי בית:</p>
         <p className="mt-1 text-muted">
           חפש בקצרה מהו RLHF, וכתוב במילים שלך מדוע שלב החיזוק נחוץ <em>אחרי</em> ה-pretraining — מה
-          המודל &quot;יודע&quot; אחרי pretraining אבל עדיין לא עושה טוב לפני RLHF?
+          המודל ”יודע” אחרי pretraining אבל עדיין לא עושה טוב לפני RLHF?
         </p>
         <p className="mt-3 font-semibold">מוביל לשיעור הבא:</p>
         <p className="mt-1 text-muted">
           בחרנו פרדיגמה ואימנו מודל — אבל איך יודעים אם הוא <em>באמת</em> טוב? בשיעור הבא נראה למה
-          &quot;95% דיוק&quot; יכול להיות מודל חסר-תועלת לגמרי, ונכיר את Precision, Recall ומטריצת הבלבול.
+          ”95% דיוק” יכול להיות מודל חסר-תועלת לגמרי, ונכיר את Precision, Recall ומטריצת הבלבול.
         </p>
       </div>
     ),

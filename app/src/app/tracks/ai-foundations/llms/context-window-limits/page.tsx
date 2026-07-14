@@ -154,7 +154,7 @@ const SECTIONS: LessonSection[] = [
     content: (
       <div>
         <p className="mb-3 text-sm text-muted">
-          שלח הודעות עד שהחלון יתמלא, וראה בעיניים אילו הודעות &quot;נופלות&quot; ראשונות. זה בדיוק
+          שלח הודעות עד שהחלון יתמלא, וראה בעיניים אילו הודעות ”נופלות” ראשונות. זה בדיוק
           ה-truncation שדיברנו עליו — שקט, בלי שגיאה:
         </p>
         <ContextWindowVisualizer windowLimit={150} />
@@ -225,9 +225,9 @@ const SECTIONS: LessonSection[] = [
             <AlertTriangle size={16} /> מה שובר מערכות בפועל
           </p>
           <ul className="space-y-1.5 text-sm">
-            <li>מניחים שהמודל &quot;זוכר&quot; שיחה קודמת — הוא stateless, ומה שלא נשלח מחדש פשוט אינו קיים.</li>
-            <li>ממלאים את החלון ב&quot;ליתר ביטחון&quot; ⇐ עלות מרקיעה, latency גדל, והתשובה דווקא מתדרדרת.</li>
-            <li>קוברים את העובדה הקריטית באמצע הקשר ארוך ⇐ &apos;lost in the middle&apos;, המודל מפספס.</li>
+            <li>מניחים שהמודל ”זוכר” שיחה קודמת — הוא stateless, ומה שלא נשלח מחדש פשוט אינו קיים.</li>
+            <li>ממלאים את החלון ב”ליתר ביטחון” ⇐ עלות מרקיעה, latency גדל, והתשובה דווקא מתדרדרת.</li>
+            <li>קוברים את העובדה הקריטית באמצע הקשר ארוך ⇐ ’lost in the middle’, המודל מפספס.</li>
             <li>מסתמכים על ידע פנימי לשאלות עובדתיות/עדכניות ⇐ הזיות ו-knowledge cutoff.</li>
           </ul>
         </div>
@@ -304,7 +304,7 @@ const SECTIONS: LessonSection[] = [
           <li>החלון סופי כי <strong>attention הוא O(n²)</strong> — הגבול נובע מהארכיטקטורה, לא מגחמה.</li>
           <li>שני מצבי-כשל שקטים: <strong>truncation</strong> (ישן נופל) ו-<strong>lost in the middle</strong> (אמצע מוזנח).</li>
           <li>אסטרטגיות: סיכום · chunking · <strong>RAG</strong> — לכל אחת trade-off, אין כדור-כסף.</li>
-          <li>&apos;חלון גדול יותר&apos; אינו חינמי: יקר, איטי, ולא בהכרח מדייק. שלח את <strong>המינימום הרלוונטי</strong>.</li>
+          <li>’חלון גדול יותר’ אינו חינמי: יקר, איטי, ולא בהכרח מדייק. שלח את <strong>המינימום הרלוונטי</strong>.</li>
         </ol>
       </div>
     ),
@@ -316,13 +316,13 @@ const SECTIONS: LessonSection[] = [
       <div className="rounded-xl bg-primary/5 p-4 text-sm">
         <p className="font-semibold">שיעורי בית:</p>
         <p className="mt-1 text-muted">
-          בוויזואלייזר למעלה, שלח מספיק הודעות כדי לגרום לחריגה מהחלון. אילו הודעות &quot;נשכחו&quot;
+          בוויזואלייזר למעלה, שלח מספיק הודעות כדי לגרום לחריגה מהחלון. אילו הודעות ”נשכחו”
           ראשונות — הישנות או החדשות? ואז חשוב: לו זו היתה שיחת-תמיכה אמיתית, איזו אסטרטגיה (סיכום?
           RAG?) היתה מונעת את אובדן המידע?
         </p>
         <p className="mt-3 font-semibold">מוביל למודול הבא:</p>
         <p className="mt-1 text-muted">
-          ראית ש&apos;לשלוף את הרלוונטי&apos; מנצח את &apos;לדחוף הכול&apos;. בדיוק על העיקרון הזה בנוי RAG —
+          ראית ש’לשלוף את הרלוונטי’ מנצח את ’לדחוף הכול’. בדיוק על העיקרון הזה בנוי RAG —
           המנגנון שנותן ל-LLM גישה לגוף-ידע עצום דרך חלון קטן. זה הצעד הבא במסע שלך.
         </p>
       </div>

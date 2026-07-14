@@ -96,7 +96,7 @@ const SECTIONS: LessonSection[] = [
     content: (
       <div>
         <p className="mb-3 text-sm text-muted">
-          שלח כמה &quot;הודעות&quot; ברצף וצפה איך חלון ההקשר מתמלא ומתחיל לוותר על תוכן ישן — בדיוק
+          שלח כמה ”הודעות” ברצף וצפה איך חלון ההקשר מתמלא ומתחיל לוותר על תוכן ישן — בדיוק
           התופעה שקורית בפועל בסשן Claude Code ארוך, רק שבמקום הודעות טקסט, אלו קבצים ופלטי פקודות.
         </p>
         <ContextWindowVisualizer windowLimit={250} />
@@ -193,8 +193,8 @@ const SECTIONS: LessonSection[] = [
       <div className="rounded-xl bg-primary/5 p-4 text-sm">
         <p className="font-semibold">שיעורי בית:</p>
         <p className="mt-1 text-muted">
-          בפעם הבאה שתעבוד סשן ארוך (מעל 20 דקות) עם Claude Code — עצור לרגע ושאל את עצמך: &quot;האם
-          כל מה שדיברנו עליו עד עכשיו עדיין רלוונטי למה שאני עושה הרגע?&quot; אם לא — זה הזמן לסכם
+          בפעם הבאה שתעבוד סשן ארוך (מעל 20 דקות) עם Claude Code — עצור לרגע ושאל את עצמך: ”האם
+          כל מה שדיברנו עליו עד עכשיו עדיין רלוונטי למה שאני עושה הרגע?” אם לא — זה הזמן לסכם
           ולפתוח דף חדש.
         </p>
       </div>

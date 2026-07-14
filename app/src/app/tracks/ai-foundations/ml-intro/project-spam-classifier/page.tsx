@@ -58,7 +58,7 @@ const SECTIONS: LessonSection[] = [
             <Target size={16} className="text-primary" /> הנימוק ההנדסי
           </p>
           <p className="text-muted">
-            מסווג ספאם הוא ה&quot;Hello World&quot; של למידה מונחית: בעיית סיווג בינארי עם נתונים
+            מסווג ספאם הוא ה”Hello World” של למידה מונחית: בעיית סיווג בינארי עם נתונים
             <strong> לא-מאוזנים</strong> (יותר תקין מספאם), בדיוק כמו הונאה, אבחון או מודרציה. כשתכוונן
             כאן משקלים וסף, תרגיש בגוף את שלושת המושגים של המודול בבת אחת — <strong>אימון</strong>{" "}
             (כיוונון משקלים), <strong>מדדי הצלחה</strong> (accuracy מול precision/recall) ו-
@@ -72,7 +72,7 @@ const SECTIONS: LessonSection[] = [
           <p className="text-muted">
             הסף (threshold) שאתה קובע הוא ידית ה-trade-off. <strong>סף גבוה</strong> = פחות התראות-שווא
             (precision גבוה) אבל יותר ספאם שמחליק פנימה (recall נמוך). <strong>סף נמוך</strong> = תופס
-            כמעט כל ספאם (recall גבוה) אבל חוסם גם מיילים תקינים (precision נמוך). אין &quot;נכון&quot;
+            כמעט כל ספאם (recall גבוה) אבל חוסם גם מיילים תקינים (precision נמוך). אין ”נכון”
             אחד — יש בחירה לפי מה יקר יותר: מייל תקין שנחסם, או ספאם שעובר. בזה בדיוק מכריע מהנדס אמיתי.
           </p>
         </div>
@@ -104,7 +104,7 @@ const SECTIONS: LessonSection[] = [
           <li>סיווגת נכון את כל 10 ההודעות — אבל חשוב מכך: אתה יודע להסביר <strong>איזה משקל</strong> גרם לכל החלטה.</li>
           <li>אתה מזהה שכיוונון מושלם ל-10 דוגמאות אינו ערובה להכללה — ויכול לנסח למה זה overfitting.</li>
           <li>אתה יכול לומר, לפי הסף שבחרת, האם המסווג נוטה ל-precision או ל-recall — ומתי כל נטייה עדיפה.</li>
-          <li>אתה מבין ש&quot;מודל אמיתי&quot; לומד ממערך אימון ונבדק על מערך test נפרד — וכאן שיחקת את שני התפקידים.</li>
+          <li>אתה מבין ש”מודל אמיתי” לומד ממערך אימון ונבדק על מערך test נפרד — וכאן שיחקת את שני התפקידים.</li>
         </ul>
       </div>
     ),
@@ -116,7 +116,7 @@ const SECTIONS: LessonSection[] = [
     content: (
       <div className="rounded-xl bg-card p-5 text-sm">
         <div className="mb-2 flex items-center gap-2 font-bold">
-          <Brain size={18} className="text-primary" /> מה כיסינו במודול &quot;מבוא ל-AI ולמידת מכונה&quot;
+          <Brain size={18} className="text-primary" /> מה כיסינו במודול ”מבוא ל-AI ולמידת מכונה”
         </div>
         <ul className="space-y-1.5">
           <li>✅ ההבדלים בין AI, ML, DL ו-LLM</li>

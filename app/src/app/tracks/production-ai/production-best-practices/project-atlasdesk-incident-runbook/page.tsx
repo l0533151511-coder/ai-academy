@@ -55,6 +55,28 @@ const QUIZ: QuizQuestion[] = [
 const SECTIONS: LessonSection[] = [
   { id: "slides", label: "מצגת: הפרויקט המסכם של הטראק", content: <SlideDeck slides={SLIDES} /> },
   {
+    id: "rationale",
+    label: "למה הפרויקט הזה: מוכנות, לא רק קוד",
+    content: (
+      <div className="rounded-xl border border-border bg-card p-4 text-sm">
+        <p className="mb-2 font-bold text-primary">הנימוק ההנדסי</p>
+        <p className="text-muted">
+          כל הטראק בנה יכולות — RAG, סוכן, ניטור, אבטחה, יעדי SLA, פריסה בטוחה. אבל ”מוכנות
+          לפרודקשן” אינה עוד יכולת: היא היכולת לתפקד כשמשהו משתבש. הפרויקט הזה מאלץ אותך לענות
+          על שאלה שכל מוצר אמיתי נבחן בה — ”מה קורה בשעה 3 לפנות בוקר כשה-API נחסם?” — לפני
+          שהלקוח שואל אותה. runbook הופך ידע שקיים בראש של מהנדס אחד לצעדים שכל אחד יכול לבצע תחת לחץ.
+        </p>
+        <p className="mb-2 mt-4 font-bold text-primary">זווית ארכיטקטורה / trade-off אחת</p>
+        <p className="text-muted">
+          runbook מפורט מדי מתיישן ואף אחד לא קורא אותו; runbook כללי מדי (”בדוק את הלוגים”)
+          חסר-תועלת ברגע אמת. האיזון: לכל תקרית — סימן ראשון קונקרטי, בדיקה אחת מדויקת, ופעולה מתקנת
+          אחת ברורה. ממוקד מספיק לפעולה עיוורת, כללי מספיק כדי לא להתיישן בכל שינוי קוד. זה בדיוק
+          המתח בין <strong>ספציפיות</strong> ל<strong>תחזוקתיות</strong> שמלווה כל תיעוד תפעולי.
+        </p>
+      </div>
+    ),
+  },
+  {
     id: "engineering",
     label: "לחשוב כמו מהנדס AI",
     content: (

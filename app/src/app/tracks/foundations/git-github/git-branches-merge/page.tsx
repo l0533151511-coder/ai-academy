@@ -83,9 +83,9 @@ const SECTIONS: LessonSection[] = [
       <div>
         <p className="mb-3 text-sm text-muted">
           נסה רצף מלא: <code>git init</code> → <code>git add .</code> →{" "}
-          <code>git commit -m &quot;Initial commit&quot;</code> → <code>git branch feature</code> →{" "}
+          <code>git commit -m ”Initial commit”</code> → <code>git branch feature</code> →{" "}
           <code>git checkout feature</code> → <code>git add .</code> →{" "}
-          <code>git commit -m &quot;Add new feature&quot;</code> → <code>git checkout main</code> →{" "}
+          <code>git commit -m ”Add new feature”</code> → <code>git checkout main</code> →{" "}
           <code>git merge feature</code>
         </p>
         <GitSimulator height={300} />

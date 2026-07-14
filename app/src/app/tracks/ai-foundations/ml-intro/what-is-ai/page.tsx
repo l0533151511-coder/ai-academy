@@ -188,7 +188,7 @@ const SECTIONS: LessonSection[] = [
     content: (
       <div>
         <p className="mb-4 text-sm text-muted">
-          הידיעה &quot;מה זה LLM&quot; שווה מעט בלי היכולת <strong>לבחור מתי להשתמש בו</strong>. זהו עץ
+          הידיעה ”מה זה LLM” שווה מעט בלי היכולת <strong>לבחור מתי להשתמש בו</strong>. זהו עץ
           ההחלטה שמהנדס מריץ בראש לפני שהוא נוגע ב-AI:
         </p>
         <StepDiagram steps={DECISION_STEPS} />
@@ -245,10 +245,10 @@ const SECTIONS: LessonSection[] = [
         <div className="rounded-xl border border-danger/30 bg-danger/5 p-4">
           <p className="mb-2 font-bold text-danger">מה שובר מערכות בפועל</p>
           <ul className="space-y-1.5 text-sm">
-            <li>מתייחסים לכל בעיה כאל &quot;בעיית AI&quot; ומגיעים ל-LLM גם לחישוב פשוט — עלות ו-latency מתפוצצים בקנה מידה.</li>
-            <li>סומכים על פלט המודל כ&quot;אמת&quot; ובונים עליו החלטה קריטית בלי ולידציה — עד שהוא מהזה.</li>
-            <li>מבלבלים בין AI מבוסס-חוקים ל-ML, ומחפשים &quot;נתוני אימון&quot; לבעיה שכל כולה if/else.</li>
-            <li>מאמינים ש-&quot;Claude מבין&quot; כמו אדם — ומופתעים כשהוא נכשל על קלט קצה.</li>
+            <li>מתייחסים לכל בעיה כאל ”בעיית AI” ומגיעים ל-LLM גם לחישוב פשוט — עלות ו-latency מתפוצצים בקנה מידה.</li>
+            <li>סומכים על פלט המודל כ”אמת” ובונים עליו החלטה קריטית בלי ולידציה — עד שהוא מהזה.</li>
+            <li>מבלבלים בין AI מבוסס-חוקים ל-ML, ומחפשים ”נתוני אימון” לבעיה שכל כולה if/else.</li>
+            <li>מאמינים ש-”Claude מבין” כמו אדם — ומופתעים כשהוא נכשל על קלט קצה.</li>
           </ul>
         </div>
         <div className="rounded-xl border border-success/30 bg-success/5 p-4">
@@ -368,7 +368,7 @@ const SECTIONS: LessonSection[] = [
         </p>
         <p className="mt-3 font-semibold">מוביל לשיעור הבא:</p>
         <p className="mt-1 text-muted">
-          הבנת ש-ML &quot;לומד מנתונים&quot; — אבל יש כמה דרכים שונות מאוד ללמוד. בשיעור הבא נפרק את שלושת
+          הבנת ש-ML ”לומד מנתונים” — אבל יש כמה דרכים שונות מאוד ללמוד. בשיעור הבא נפרק את שלושת
           סוגי הלמידה (מונחית, לא-מונחית, חיזוקית) ונראה איך בדיוק Claude אומן בעזרתן.
         </p>
       </div>

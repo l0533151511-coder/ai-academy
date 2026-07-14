@@ -56,6 +56,40 @@ const QUIZ: QuizQuestion[] = [
 const SECTIONS: LessonSection[] = [
   { id: "slides", label: "מצגת: הפרויקט המסכם של המודול", content: <SlideDeck slides={SLIDES} /> },
   {
+    id: "rationale",
+    label: "למה הפרויקט הזה — ומה נחשב הצלחה",
+    content: (
+      <div className="space-y-4 text-sm">
+        <div className="rounded-xl border border-border bg-card p-4">
+          <p className="mb-1 font-bold text-primary">הנימוק ההנדסי (why this project)</p>
+          <p className="text-muted">
+            שני השיעורים הקודמים היו עקרונות; כאן הם הופכים לקוד שרץ. שכבת ניטור אמיתית ב-AtlasDesk
+            היא הדבר שיאפשר לך בשיעורים הבאים לקבל החלטות מבוססות-נתונים (עלות, caching, אבטחה)
+            במקום ניחושים. בלי מדידה — כל ’אופטימיזציה’ היא תחושת בטן.
+          </p>
+        </div>
+        <div className="rounded-xl border border-border bg-card p-4">
+          <p className="mb-1 font-bold text-primary">זווית הארכיטקטורה / trade-off אחד</p>
+          <p className="text-muted">
+            כתיבת הלוג <strong>אסינכרונית</strong> מול <strong>סינכרונית</strong>: כתיבה סינכרונית לפני
+            החזרת התשובה מבטיחה שאף אירוע לא יאבד — אך מוסיפה latency לכל משתמש בנתיב הקריטי. כתיבה
+            אסינכרונית (fire-and-forget / תור) שומרת על מהירות התגובה אך עלולה לאבד אירוע בקריסה. עבור
+            שכבת ניטור, מהירות התגובה למשתמש מנצחת — עדיף לאבד אירוע נדיר מלהאט כל קריאה.
+          </p>
+        </div>
+        <div className="rounded-xl border border-success/30 bg-success/5 p-4">
+          <p className="mb-1 font-bold text-success">מה נחשב הצלחה</p>
+          <ul className="space-y-1 text-muted list-disc pr-5">
+            <li>כל 5 נתיבי ה-AI של AtlasDesk רושמים אירוע (כולל סיכום נכון של סוכנים רב-סיבוביים).</li>
+            <li>‎/api/atlasdesk/stats מציג נתונים מצטברים נכונים ומפולחים לפי נתיב.</li>
+            <li>יש הגדרת אנומליה אחת מדידה (למשל עלות יומית פי 2 מהחציון) שאפשר להתריע עליה.</li>
+            <li>הלוגינג אינו מוסיף latency מורגש לנתיב הקריטי (נכתב אסינכרונית).</li>
+          </ul>
+        </div>
+      </div>
+    ),
+  },
+  {
     id: "engineering",
     label: "לחשוב כמו מהנדס AI",
     content: (

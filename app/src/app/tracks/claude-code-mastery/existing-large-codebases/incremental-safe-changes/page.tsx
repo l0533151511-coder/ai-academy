@@ -274,7 +274,7 @@ PR 4: סינון שיחות לפי תגית`,
       <div className="rounded-xl bg-primary/5 p-4 text-sm">
         <p className="font-semibold">שיעורי בית:</p>
         <p className="mt-1 text-muted">
-          עבור על היסטוריית git של פרויקט כלשהו וחפש commit &quot;ענק&quot; (הרבה שורות שינוי). נסה
+          עבור על היסטוריית git של פרויקט כלשהו וחפש commit ”ענק” (הרבה שורות שינוי). נסה
           לדמיין: איך היית מפרק אותו לסדרת commits קטנים יותר בדיעבד? אילו concerns נדחסו לתוכו?
         </p>
         <p className="mt-3 font-semibold">מוביל לשיעור הבא:</p>

@@ -102,7 +102,7 @@ const SECTIONS: LessonSection[] = [
       <div className="rounded-xl bg-primary/5 p-4 text-sm">
         <p className="font-semibold">🎓 סיימת את כל טראק Claude Code Mastery — 6 מודולים, 33 שיעורים!</p>
         <p className="mt-1 text-muted">
-          מ-&quot;התקנה ראשונית&quot; ועד &quot;audit production מלא&quot; — למדת בדיוק איך מהנדס AI
+          מ-”התקנה ראשונית” ועד ”audit production מלא” — למדת בדיוק איך מהנדס AI
           בכיר עובד עם Claude Code על מוצר אמיתי שממשיך לגדול. AtlasDesk הוא ההוכחה: מנוע שיחה
           בסיסי שהפך למערכת עם זיכרון, כלים, RAG, וסוכן אוטונומי — כולם נבנו עם המשמעת ההנדסית
           שהטראק הזה לימד. הטראקים הבאים (AI Agents, Production AI, SaaS) ימשיכו להרחיב את

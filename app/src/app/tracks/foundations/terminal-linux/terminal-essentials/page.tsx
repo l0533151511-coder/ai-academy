@@ -186,7 +186,7 @@ const SECTIONS: LessonSection[] = [
           <li><strong>cd</strong> — "לך לשם" (Change Directory).</li>
         </ol>
         <p className="mt-3 text-xs text-muted">
-          חשוב לזכור: זו בדיוק השפה ש-Claude Code &quot;מדבר&quot; כשהוא מנווט בקוד שלך. פתח טרמינל
+          חשוב לזכור: זו בדיוק השפה ש-Claude Code ”מדבר” כשהוא מנווט בקוד שלך. פתח טרמינל
           אמיתי במחשב שלך ונווט לתיקיית המסמכים שלך רק עם שלוש הפקודות האלו, בלי לעזור לעצמך
           בממשק גרפי.
         </p>

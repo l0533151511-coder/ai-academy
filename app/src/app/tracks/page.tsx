@@ -9,7 +9,7 @@ export default function TracksPage() {
     <div className="mx-auto max-w-5xl px-6 py-12">
       <h1 className="text-3xl font-extrabold">מפת מסלולי הלימוד</h1>
       <p className="mt-2 text-muted">
-        {TRACKS.length} מסלולים, מ&quot;יסודות מחשב&quot; ועד פרויקט גמר SaaS מלא — עם דגש מרכזי על הנדסת AI
+        {TRACKS.length} מסלולים, מ”יסודות מחשב” ועד פרויקט גמר SaaS מלא — עם דגש מרכזי על הנדסת AI
         וClaude Code. עקוב אחרי הסדר — כל מסלול בונה על הקודם.
       </p>
 

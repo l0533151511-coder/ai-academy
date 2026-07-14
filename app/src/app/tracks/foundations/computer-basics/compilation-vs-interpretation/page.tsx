@@ -161,7 +161,7 @@ const SECTIONS: LessonSection[] = [
       <div>
         <p className="mb-3 text-sm text-muted">
           הרץ את הקוד הבא — זהו JavaScript שרץ באמצעות אינטרפרטציה/JIT בדפדפן שלך ממש עכשיו. שים לב
-          שאין &quot;שלב קומפילציה&quot; נפרד שאתה רואה — לחצת &quot;הרץ&quot; וזה קרה.
+          שאין ”שלב קומפילציה” נפרד שאתה רואה — לחצת ”הרץ” וזה קרה.
         </p>
         <CodePlayground
           initialCode={`function factorial(n) {\n  return n <= 1 ? 1 : n * factorial(n - 1);\n}\nconsole.log("5! =", factorial(5));`}
@@ -177,14 +177,14 @@ const SECTIONS: LessonSection[] = [
         <div className="rounded-xl border border-danger/30 bg-danger/5 p-4">
           <p className="mb-2 font-bold text-danger">טעויות נפוצות</p>
           <ul className="space-y-1.5 text-sm">
-            <li>לחשוב ש&quot;קומפילציה תמיד מהירה יותר&quot; — תלוי גם באלגוריתם, לא רק בשיטת התרגום.</li>
-            <li>לבלבל בין &quot;שפה מקומפלת&quot; ל&quot;שפה מהירה&quot; — יש הרבה גורמים נוספים לביצועים.</li>
+            <li>לחשוב ש”קומפילציה תמיד מהירה יותר” — תלוי גם באלגוריתם, לא רק בשיטת התרגום.</li>
+            <li>לבלבל בין ”שפה מקומפלת” ל”שפה מהירה” — יש הרבה גורמים נוספים לביצועים.</li>
           </ul>
         </div>
         <div className="rounded-xl border border-success/30 bg-success/5 p-4">
           <p className="mb-2 font-bold text-success">Best Practices</p>
           <ul className="space-y-1.5 text-sm">
-            <li>בחר שפה לפי הצרכים בפועל (מהירות פיתוח מול מהירות ריצה), לא רק לפי &quot;טרנד&quot;.</li>
+            <li>בחר שפה לפי הצרכים בפועל (מהירות פיתוח מול מהירות ריצה), לא רק לפי ”טרנד”.</li>
             <li>כשמבצעים אופטימיזציה — תמיד למדוד (profile) לפני שמשערים מה איטי.</li>
           </ul>
         </div>
@@ -261,7 +261,7 @@ const SECTIONS: LessonSection[] = [
         <p className="font-semibold">שיעורי בית:</p>
         <p className="mt-1 text-muted">
           חפש: האם Java היא שפה מקומפלת או מפורשת? (רמז: התשובה מעניינת ומשלבת את שניהם — זה יעזור
-          לך להבין למה השאלה &quot;קומפילציה או אינטרפרטציה&quot; היא לפעמים לא בינארית).
+          לך להבין למה השאלה ”קומפילציה או אינטרפרטציה” היא לפעמים לא בינארית).
         </p>
       </div>
     ),

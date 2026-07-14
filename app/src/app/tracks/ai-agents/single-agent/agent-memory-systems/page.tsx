@@ -224,7 +224,7 @@ const SECTIONS: LessonSection[] = [
         <p className="mt-1 text-muted">
           עבור על היסטוריית שיחה ארוכה שלך עם Claude Code או כל AI אחר. סמן אילו חלקים היו
           שווים שימור כ-long-term memory (עובדות שממשיכות להיות רלוונטיות) ואילו היו רק
-          &quot;רעש&quot; חד-פעמי שאפשר לזרוק.
+          ”רעש” חד-פעמי שאפשר לזרוק.
         </p>
       </div>
     ),
