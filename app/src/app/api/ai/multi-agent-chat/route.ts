@@ -84,7 +84,7 @@ export async function POST(req: NextRequest) {
     });
   } catch (e) {
     return NextResponse.json(
-      { content: `שגיאה במערכת הרב-סוכנית: ${(e as Error).message}`, connected: true },
+      { content: `שגיאה במערכת הרב-סוכנית: ${(e as Error).message}`, connected: true, usage: null },
       { status: 200 }
     );
   }

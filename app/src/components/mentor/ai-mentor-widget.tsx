@@ -63,7 +63,7 @@ export function AIMentorWidget() {
             <div className="flex items-center gap-2 font-semibold">
               <Bot size={18} className="text-primary" /> AI Mentor
             </div>
-            <button onClick={() => setOpen(false)} aria-label="סגור">
+            <button onClick={() => setOpen(false)} aria-label="סגור" className="flex size-9 items-center justify-center rounded-lg hover:bg-background">
               <X size={16} />
             </button>
           </div>

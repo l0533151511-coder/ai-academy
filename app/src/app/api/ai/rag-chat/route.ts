@@ -31,7 +31,17 @@ const RAG_SYSTEM_PROMPT = `אתה נציג תמיכת הלקוחות של AtlasD
 export async function POST(req: NextRequest) {
   const openaiKey = process.env.OPENAI_API_KEY;
   const anthropicKey = process.env.ANTHROPIC_API_KEY;
-  const { messages } = (await req.json()) as { messages: ChatMessage[] };
+
+  let messages: ChatMessage[];
+  try {
+    const body = await req.json();
+    messages = body?.messages;
+  } catch {
+    return NextResponse.json({ error: "invalid json" }, { status: 400 });
+  }
+  if (!Array.isArray(messages) || messages.length === 0) {
+    return NextResponse.json({ error: "no messages" }, { status: 400 });
+  }
 
   if (!openaiKey || !anthropicKey) {
     const missing = [!openaiKey && "OPENAI_API_KEY", !anthropicKey && "ANTHROPIC_API_KEY"]
@@ -90,7 +100,7 @@ export async function POST(req: NextRequest) {
     });
   } catch (e) {
     return NextResponse.json(
-      { connected: true, content: `שגיאה ב-RAG: ${(e as Error).message}` },
+      { connected: true, content: `שגיאה ב-RAG: ${(e as Error).message}`, usage: null },
       { status: 200 }
     );
   }

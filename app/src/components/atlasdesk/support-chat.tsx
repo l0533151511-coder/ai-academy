@@ -149,7 +149,7 @@ export function SupportChat() {
             onClick={() => setMode((m) => (m === "tools" ? "plain" : "tools"))}
             aria-pressed={mode === "tools"}
             title="מפעיל כלי 'בדוק סטטוס פנייה' אמיתי (נסה: AD-1042, AD-2087, AD-3311)"
-            className={`rounded-full border px-3 py-1 text-xs font-semibold transition ${
+            className={`rounded-full border px-3 py-1.5 text-xs font-semibold transition min-h-9 ${
               mode === "tools" ? "border-primary bg-primary/10 text-primary" : "border-border text-muted"
             }`}
           >
@@ -159,7 +159,7 @@ export function SupportChat() {
             onClick={() => setMode((m) => (m === "rag" ? "plain" : "rag"))}
             aria-pressed={mode === "rag"}
             title="מפעיל RAG אמיתי — תשובות מבוססות מאמרי העזרה של AtlasDesk"
-            className={`rounded-full border px-3 py-1 text-xs font-semibold transition ${
+            className={`rounded-full border px-3 py-1.5 text-xs font-semibold transition min-h-9 ${
               mode === "rag" ? "border-primary bg-primary/10 text-primary" : "border-border text-muted"
             }`}
           >
@@ -169,7 +169,7 @@ export function SupportChat() {
             onClick={() => setMode((m) => (m === "agent" ? "plain" : "agent"))}
             aria-pressed={mode === "agent"}
             title="מפעיל סוכן אוטונומי — מזהה ניחושים חוזרים ועוצר לבקש הבהרה (human-in-the-loop)"
-            className={`rounded-full border px-3 py-1 text-xs font-semibold transition ${
+            className={`rounded-full border px-3 py-1.5 text-xs font-semibold transition min-h-9 ${
               mode === "agent" ? "border-primary bg-primary/10 text-primary" : "border-border text-muted"
             }`}
           >
@@ -179,7 +179,7 @@ export function SupportChat() {
             onClick={() => setMode((m) => (m === "multiAgent" ? "plain" : "multiAgent"))}
             aria-pressed={mode === "multiAgent"}
             title="מערכת רב-סוכנית — מסלים שאלות חיוב מורכבות לסוכן מומחה (נסה: 'אני רוצה זיכוי על חיוב כפול')"
-            className={`rounded-full border px-3 py-1 text-xs font-semibold transition ${
+            className={`rounded-full border px-3 py-1.5 text-xs font-semibold transition min-h-9 ${
               mode === "multiAgent" ? "border-primary bg-primary/10 text-primary" : "border-border text-muted"
             }`}
           >
@@ -188,7 +188,7 @@ export function SupportChat() {
           <button
             onClick={() => setDevMode((d) => !d)}
             aria-pressed={devMode}
-            className={`flex items-center gap-1.5 rounded-full border px-3 py-1 text-xs font-semibold transition ${
+            className={`flex items-center gap-1.5 rounded-full border px-3 py-1.5 text-xs font-semibold transition min-h-9 ${
               devMode ? "border-primary bg-primary/10 text-primary" : "border-border text-muted"
             }`}
           >
@@ -198,7 +198,7 @@ export function SupportChat() {
             onClick={clearConversation}
             title="נקה שיחה"
             aria-label="נקה שיחה"
-            className="rounded-full border border-border p-1.5 text-muted transition hover:border-danger hover:text-danger"
+            className="rounded-full border border-border p-2 text-muted transition hover:border-danger hover:text-danger"
           >
             <Trash2 size={14} />
           </button>
