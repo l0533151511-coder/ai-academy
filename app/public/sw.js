@@ -1,6 +1,6 @@
 // Service Worker — אקדמיית AI
 // אסטרטגיה: network-first לניווטים (תמיד מעודכן), cache-first לנכסים סטטיים (מהיר, עובד אופליין).
-const CACHE_NAME = "ai-academy-v1";
+const CACHE_NAME = "ai-academy-v2";
 const STATIC_CACHE_URLS = ["/", "/manifest.json", "/icon.svg"];
 
 self.addEventListener("install", (event) => {
@@ -39,16 +39,19 @@ self.addEventListener("fetch", (event) => {
   }
 
   if (url.origin === self.location.origin) {
+    // stale-while-revalidate: מגישים מהמטמון מיד (מהיר), אך תמיד מרעננים ברקע —
+    // כך נכס לא-hashed (icon/manifest) לא נשאר מיושן לנצח אחרי דיפלוי.
     event.respondWith(
-      caches.match(request).then(
-        (cached) =>
-          cached ||
-          fetch(request).then((response) => {
+      caches.match(request).then((cached) => {
+        const network = fetch(request)
+          .then((response) => {
             const clone = response.clone();
             caches.open(CACHE_NAME).then((cache) => cache.put(request, clone));
             return response;
           })
-      )
+          .catch(() => cached);
+        return cached || network;
+      })
     );
   }
 });

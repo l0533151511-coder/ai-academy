@@ -1,4 +1,7 @@
-export const metadata = { title: "AI Mentor" };
+export const metadata = {
+  title: "AI Mentor",
+  description: "מנטור AI סוקרטי שמכוון בשאלות ורמזים במקום לפתור — בונה חשיבה עצמאית.",
+};
 
 export default function MentorPage() {
   return (

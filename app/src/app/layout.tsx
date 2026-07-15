@@ -50,9 +50,22 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "EducationalOrganization",
+    name: "אקדמיית AI",
+    description: SITE_DESCRIPTION,
+    url: SITE_URL,
+    inLanguage: "he",
+  };
+
   return (
     <html lang="he" dir="rtl" className={`${heebo.variable} h-full`} suppressHydrationWarning>
       <body className="min-h-full flex flex-col bg-background text-foreground font-sans antialiased">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
         <a
           href="#main-content"
           className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:right-2 focus:z-50 focus:rounded-lg focus:bg-primary focus:px-4 focus:py-2 focus:text-primary-foreground"

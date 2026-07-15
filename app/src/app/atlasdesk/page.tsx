@@ -2,7 +2,10 @@ import { Sparkles } from "lucide-react";
 import { SupportChat } from "@/components/atlasdesk/support-chat";
 import { ATLASDESK_VERSION_LABEL } from "@/lib/atlasdesk/config";
 
-export const metadata = { title: "AtlasDesk — פרויקט האקדמיה" };
+export const metadata = {
+  title: "AtlasDesk — פרויקט האקדמיה",
+  description: "מוצר ה-AI המתמשך שנבנה לאורך האקדמיה — צ׳אט תמיכה עם כלים, RAG, סוכן ומערכת רב-סוכנית.",
+};
 
 export default function AtlasDeskPage() {
   return (

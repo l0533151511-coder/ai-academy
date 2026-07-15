@@ -4,7 +4,8 @@ import { TRACKS } from "@/lib/curriculum/data";
 const SITE_URL = "https://ai-academy-three-olive.vercel.app";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const staticPages = ["", "/tracks", "/dashboard", "/playground", "/mentor", "/auth/login", "/auth/signup"];
+  // רק דפים ציבוריים ואינדקסביליים — לא כוללים /dashboard ו-/auth/* שחסומים ב-robots
+  const staticPages = ["", "/tracks", "/skills", "/graduation", "/atlasdesk", "/playground", "/mentor"];
 
   const lessonPages = TRACKS.flatMap((track) =>
     track.modules.flatMap((module) =>

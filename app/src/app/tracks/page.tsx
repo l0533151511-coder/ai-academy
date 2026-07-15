@@ -2,7 +2,10 @@ import Link from "next/link";
 import { CheckCircle2, Circle, Trophy } from "lucide-react";
 import { TRACKS } from "@/lib/curriculum/data";
 
-export const metadata = { title: "מסלולי לימוד" };
+export const metadata = {
+  title: "מסלולי לימוד",
+  description: "כל מסלולי האקדמיה — מיסודות המחשב ועד בניית מוצרי AI בפרודקשן, מבוססי פרויקטים.",
+};
 
 export default function TracksPage() {
   return (
