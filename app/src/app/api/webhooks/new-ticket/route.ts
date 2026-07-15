@@ -57,7 +57,23 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: "invalid signature" }, { status: 401 });
   }
 
-  const payload = JSON.parse(rawBody) as NewTicketPayload;
+  // parse + ולידציית שדות: גוף חתום-אך-פגום מחזיר 400, ו-eventId חסר לא שובר את ה-idempotency
+  let payload: NewTicketPayload;
+  try {
+    const parsed = JSON.parse(rawBody);
+    if (
+      !parsed ||
+      typeof parsed.eventId !== "string" ||
+      typeof parsed.ticketId !== "string" ||
+      typeof parsed.subject !== "string" ||
+      typeof parsed.content !== "string"
+    ) {
+      return NextResponse.json({ error: "missing or invalid fields" }, { status: 400 });
+    }
+    payload = parsed as NewTicketPayload;
+  } catch {
+    return NextResponse.json({ error: "invalid json" }, { status: 400 });
+  }
 
   if (processedEventIds.has(payload.eventId)) {
     return NextResponse.json({ status: "already_processed", eventId: payload.eventId });

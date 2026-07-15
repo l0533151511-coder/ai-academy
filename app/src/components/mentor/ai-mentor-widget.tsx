@@ -33,8 +33,18 @@ export function AIMentorWidget() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ messages: next }),
       });
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
       const data = await res.json();
-      setMessages((m) => [...m, { role: "assistant", content: data.content }]);
+      setMessages((m) => [
+        ...m,
+        {
+          role: "assistant",
+          content:
+            typeof data.content === "string" && data.content
+              ? data.content
+              : "לא התקבלה תשובה. נסה שוב.",
+        },
+      ]);
     } catch {
       setMessages((m) => [
         ...m,
@@ -57,7 +67,12 @@ export function AIMentorWidget() {
               <X size={16} />
             </button>
           </div>
-          <div className="flex-1 space-y-3 overflow-y-auto p-3 text-sm">
+          <div
+            className="flex-1 space-y-3 overflow-y-auto p-3 text-sm"
+            role="log"
+            aria-live="polite"
+            aria-label="שיחה עם המנטור"
+          >
             {messages.map((m, i) => (
               <div
                 key={i}
@@ -71,7 +86,11 @@ export function AIMentorWidget() {
                 {m.content}
               </div>
             ))}
-            {loading && <div className="text-xs text-muted">המנטור חושב…</div>}
+            {loading && (
+              <div className="text-xs text-muted" role="status">
+                המנטור חושב…
+              </div>
+            )}
           </div>
           <div className="flex items-center gap-2 border-t border-border p-2">
             <input
@@ -79,7 +98,8 @@ export function AIMentorWidget() {
               onChange={(e) => setInput(e.target.value)}
               onKeyDown={(e) => e.key === "Enter" && send()}
               placeholder="שאל את המנטור…"
-              className="flex-1 rounded-lg bg-background px-3 py-2 text-sm outline-none"
+              aria-label="שאלה למנטור"
+              className="flex-1 rounded-lg bg-background px-3 py-2 text-sm outline-none focus-visible:ring-2 focus-visible:ring-primary"
             />
             <button
               onClick={send}
@@ -94,7 +114,8 @@ export function AIMentorWidget() {
       <button
         onClick={() => setOpen((o) => !o)}
         className="flex size-14 items-center justify-center rounded-full bg-primary text-primary-foreground shadow-xl transition hover:scale-105"
-        aria-label="פתח את המנטור"
+        aria-label={open ? "סגור את המנטור" : "פתח את המנטור"}
+        aria-expanded={open}
       >
         <Bot size={24} />
       </button>

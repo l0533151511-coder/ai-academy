@@ -49,12 +49,18 @@ export function PromptPlayground({
           messages: [{ role: "user", content: userMessage }],
         }),
       });
-      const data = await res.json();
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok || typeof data.content !== "string") {
+        setResponse("שגיאה בקריאה ל-API. נסה שוב.");
+        setUsage(null); // מונע הצגת עלות מיושנת מריצה קודמת
+        return;
+      }
       setResponse(data.content);
-      setUsage(data.usage);
+      setUsage(data.usage ?? null);
       setConnected(data.connected !== false);
     } catch (e) {
       setResponse(`שגיאת רשת: ${(e as Error).message}`);
+      setUsage(null);
     } finally {
       setLoading(false);
     }
@@ -93,6 +99,7 @@ export function PromptPlayground({
         <select
           value={modelId}
           onChange={(e) => setModelId(e.target.value as typeof modelId)}
+          aria-label="בחירת מודל"
           className="rounded-lg border border-border bg-background px-2 py-1.5 text-xs"
         >
           {CLAUDE_MODELS.map((m) => (

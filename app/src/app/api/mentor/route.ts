@@ -14,7 +14,23 @@ const MENTOR_SYSTEM_PROMPT = `אתה "המנטור" — עוזר AI פדגוגי
 
 export async function POST(req: NextRequest) {
   const apiKey = process.env.ANTHROPIC_API_KEY;
-  const { messages, lessonContext } = await req.json();
+
+  // ולידציית קלט — גוף לא-תקין מחזיר 400 נקי במקום 500 עם stack
+  let messages: unknown;
+  let lessonContext: unknown;
+  try {
+    const body = await req.json();
+    messages = body?.messages;
+    lessonContext = body?.lessonContext;
+  } catch {
+    return NextResponse.json({ role: "assistant", content: "בקשה לא תקינה." }, { status: 400 });
+  }
+  if (!Array.isArray(messages) || messages.length === 0) {
+    return NextResponse.json(
+      { role: "assistant", content: "לא התקבלו הודעות." },
+      { status: 400 }
+    );
+  }
 
   if (!apiKey) {
     return NextResponse.json(
@@ -27,22 +43,29 @@ export async function POST(req: NextRequest) {
     );
   }
 
-  const client = new Anthropic({ apiKey });
+  const system =
+    typeof lessonContext === "string" && lessonContext
+      ? `${MENTOR_SYSTEM_PROMPT}\n\nהקשר השיעור הנוכחי: ${lessonContext}`
+      : MENTOR_SYSTEM_PROMPT;
 
-  const system = lessonContext
-    ? `${MENTOR_SYSTEM_PROMPT}\n\nהקשר השיעור הנוכחי: ${lessonContext}`
-    : MENTOR_SYSTEM_PROMPT;
-
-  const response = await client.messages.create({
-    model: "claude-sonnet-4-5",
-    max_tokens: 1024,
-    system,
-    messages,
-  });
-
-  const textBlock = response.content.find((b) => b.type === "text");
-  return NextResponse.json({
-    role: "assistant",
-    content: textBlock && "text" in textBlock ? textBlock.text : "",
-  });
+  try {
+    const client = new Anthropic({ apiKey });
+    const response = await client.messages.create({
+      model: "claude-sonnet-4-5",
+      max_tokens: 1024,
+      system,
+      messages: messages as Anthropic.MessageParam[],
+    });
+    const textBlock = response.content.find((b) => b.type === "text");
+    return NextResponse.json({
+      role: "assistant",
+      content: textBlock && "text" in textBlock ? textBlock.text : "",
+    });
+  } catch (error) {
+    // כשל בזמן ריצה (מפתח לא תקין, rate-limit, רשת) — תגובה נקייה, בלי דליפת פנימיות
+    return NextResponse.json(
+      { role: "assistant", content: `שגיאה בקריאה למנטור: ${(error as Error).message}` },
+      { status: 200 }
+    );
+  }
 }

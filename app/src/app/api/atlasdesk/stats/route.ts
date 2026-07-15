@@ -15,14 +15,15 @@ export const runtime = "nodejs";
 export async function GET(req: NextRequest) {
   const adminKey = process.env.ATLASDESK_ADMIN_KEY;
 
+  // fail-closed: היעדר סוד = חסימה, לא חשיפה. נתוני עלות/שימוש לא נחשפים ללא הגנה מוגדרת.
   if (!adminKey) {
     return NextResponse.json(
       {
         connected: false,
-        message: "אין עדיין הגנת גישה מוגדרת (חסר ATLASDESK_ADMIN_KEY בסביבת השרת) — הנתונים חשופים כרגע ללא הגבלה.",
-        stats: getStats(),
+        message:
+          "הגנת הגישה אינה מוגדרת (חסר ATLASDESK_ADMIN_KEY בסביבת השרת). מטעמי אבטחה הנתונים חסומים עד שתוגדר.",
       },
-      { status: 200 }
+      { status: 503 }
     );
   }
 

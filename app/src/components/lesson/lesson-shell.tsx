@@ -36,12 +36,13 @@ export function LessonShell({
   const isComplete = state.completedLessons.includes(lessonSlug);
   const isBookmarked = state.bookmarks.includes(lessonSlug);
   const [noteDraft, setNoteDraft] = React.useState("");
-  const noteLoadedRef = React.useRef(false);
+  // טוען את ההערה פעם אחת לכל שיעור, ומאפס כשעוברים לשיעור אחר (גם אם ה-instance ממוחזר)
+  const loadedForRef = React.useRef<string | null>(null);
 
   React.useEffect(() => {
-    if (!noteLoadedRef.current) {
+    if (loadedForRef.current !== lessonSlug) {
       setNoteDraft(state.notes[lessonSlug] ?? "");
-      noteLoadedRef.current = true;
+      loadedForRef.current = lessonSlug;
     }
   }, [state.notes, lessonSlug]);
 

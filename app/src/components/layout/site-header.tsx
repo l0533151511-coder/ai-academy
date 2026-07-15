@@ -3,6 +3,7 @@ import { GraduationCap } from "lucide-react";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { UserMenu } from "@/components/layout/user-menu";
 import { GlobalSearch } from "@/components/search/global-search";
+import { MobileNav } from "@/components/layout/mobile-nav";
 
 const NAV = [
   { href: "/tracks", label: "מסלולי לימוד" },
@@ -38,6 +39,7 @@ export function SiteHeader() {
           <GlobalSearch />
           <ThemeToggle />
           <UserMenu />
+          <MobileNav items={NAV} />
         </div>
       </div>
     </header>

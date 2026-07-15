@@ -9,7 +9,7 @@ import { getSkillById } from "@/lib/adaptive/skills";
 import { cn } from "@/lib/utils";
 
 export default function SkillsPage() {
-  const { report } = useAdaptive();
+  const { report, ready } = useAdaptive();
   const { masteryList, masteryById, analytics } = report;
 
   // קיבוץ לפי טראק, בסדר הלימוד
@@ -30,6 +30,17 @@ export default function SkillsPage() {
         גרף הידע של האקדמיה — כל מודול הוא כישור. השליטה נמדדת מהשלמת שיעורים, ביצועים בבחנים
         ושימור לאורך זמן. כישור נפתח כשדרישות-הקדם שלו בשליטה.
       </p>
+
+      {!ready && (
+        <div className="mt-6 rounded-2xl border border-primary/30 bg-primary/5 p-6 text-sm text-muted">
+          <p className="mb-1 font-bold text-foreground">המפה שלך עדיין ריקה — וזה בסדר.</p>
+          השלם את השיעור הראשון שלך, ומכאן המפה תתחיל להתמלא: כל כישור יקבל מדד שליטה, כישורים
+          ייפתחו בהדרגה, והמערכת תזהה במה כדאי להתמקד.{" "}
+          <Link href="/dashboard" className="font-semibold text-primary hover:underline">
+            להתחיל מלוח הבקרה
+          </Link>
+        </div>
+      )}
 
       <div className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-4">
         <MiniStat label="כישורים שהתחלת" value={`${analytics.skillsStarted}/${analytics.totalSkills}`} />

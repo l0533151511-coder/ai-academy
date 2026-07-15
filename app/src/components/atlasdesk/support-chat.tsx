@@ -80,7 +80,11 @@ export function SupportChat() {
   }, []);
 
   React.useEffect(() => {
-    window.localStorage.setItem(STORAGE_KEY, JSON.stringify(messages));
+    try {
+      window.localStorage.setItem(STORAGE_KEY, JSON.stringify(messages));
+    } catch {
+      /* מצב פרטי / חריגת quota — לא מפילים את הרכיב בגלל כשל שמירה */
+    }
   }, [messages]);
 
   function clearConversation() {
@@ -109,12 +113,16 @@ export function SupportChat() {
           messages: next.map((m) => ({ role: m.role, content: m.content })),
         }),
       });
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
       const data = await res.json();
       setMessages((m) => [
         ...m,
         {
           role: "assistant",
-          content: data.content,
+          content:
+            typeof data.content === "string" && data.content
+              ? data.content
+              : "לא התקבלה תשובה מהשרת. נסה שוב.",
           usage: data.usage,
           toolLog: data.toolLog,
           sources: data.sources,
@@ -139,6 +147,7 @@ export function SupportChat() {
         <div className="flex flex-wrap items-center gap-2">
           <button
             onClick={() => setMode((m) => (m === "tools" ? "plain" : "tools"))}
+            aria-pressed={mode === "tools"}
             title="מפעיל כלי 'בדוק סטטוס פנייה' אמיתי (נסה: AD-1042, AD-2087, AD-3311)"
             className={`rounded-full border px-3 py-1 text-xs font-semibold transition ${
               mode === "tools" ? "border-primary bg-primary/10 text-primary" : "border-border text-muted"
@@ -148,6 +157,7 @@ export function SupportChat() {
           </button>
           <button
             onClick={() => setMode((m) => (m === "rag" ? "plain" : "rag"))}
+            aria-pressed={mode === "rag"}
             title="מפעיל RAG אמיתי — תשובות מבוססות מאמרי העזרה של AtlasDesk"
             className={`rounded-full border px-3 py-1 text-xs font-semibold transition ${
               mode === "rag" ? "border-primary bg-primary/10 text-primary" : "border-border text-muted"
@@ -157,6 +167,7 @@ export function SupportChat() {
           </button>
           <button
             onClick={() => setMode((m) => (m === "agent" ? "plain" : "agent"))}
+            aria-pressed={mode === "agent"}
             title="מפעיל סוכן אוטונומי — מזהה ניחושים חוזרים ועוצר לבקש הבהרה (human-in-the-loop)"
             className={`rounded-full border px-3 py-1 text-xs font-semibold transition ${
               mode === "agent" ? "border-primary bg-primary/10 text-primary" : "border-border text-muted"
@@ -166,6 +177,7 @@ export function SupportChat() {
           </button>
           <button
             onClick={() => setMode((m) => (m === "multiAgent" ? "plain" : "multiAgent"))}
+            aria-pressed={mode === "multiAgent"}
             title="מערכת רב-סוכנית — מסלים שאלות חיוב מורכבות לסוכן מומחה (נסה: 'אני רוצה זיכוי על חיוב כפול')"
             className={`rounded-full border px-3 py-1 text-xs font-semibold transition ${
               mode === "multiAgent" ? "border-primary bg-primary/10 text-primary" : "border-border text-muted"
@@ -175,6 +187,7 @@ export function SupportChat() {
           </button>
           <button
             onClick={() => setDevMode((d) => !d)}
+            aria-pressed={devMode}
             className={`flex items-center gap-1.5 rounded-full border px-3 py-1 text-xs font-semibold transition ${
               devMode ? "border-primary bg-primary/10 text-primary" : "border-border text-muted"
             }`}
@@ -192,7 +205,7 @@ export function SupportChat() {
         </div>
       </div>
 
-      <div className="flex-1 space-y-3 overflow-y-auto p-4">
+      <div className="flex-1 space-y-3 overflow-y-auto p-4" role="log" aria-live="polite" aria-label="שיחת התמיכה">
         {messages.map((m, i) => (
           <div key={i} className={`flex gap-2 ${m.role === "user" ? "flex-row-reverse" : ""}`}>
             <span className="mt-1 flex size-7 shrink-0 items-center justify-center rounded-full bg-background">
@@ -218,7 +231,10 @@ export function SupportChat() {
                   <p className="text-[10px] font-semibold opacity-70">📚 מקורות:</p>
                   {m.sources.map((s, si) => (
                     <p key={si} className="text-[10px] opacity-70">
-                      {s.title} {devMode && `(similarity: ${s.similarity.toFixed(2)})`}
+                      {s.title}{" "}
+                      {devMode &&
+                        typeof s.similarity === "number" &&
+                        `(similarity: ${s.similarity.toFixed(2)})`}
                     </p>
                   ))}
                 </div>
@@ -248,7 +264,11 @@ export function SupportChat() {
             </div>
           </div>
         ))}
-        {loading && <div className="text-xs text-muted">AtlasDesk מקליד...</div>}
+        {loading && (
+          <div className="text-xs text-muted" role="status">
+            AtlasDesk מקליד...
+          </div>
+        )}
       </div>
 
       {devMode && (
@@ -263,7 +283,8 @@ export function SupportChat() {
           onChange={(e) => setInput(e.target.value)}
           onKeyDown={(e) => e.key === "Enter" && send()}
           placeholder="כתוב הודעה..."
-          className="flex-1 rounded-lg bg-background px-3 py-2 text-sm outline-none"
+          aria-label="הודעה ל-AtlasDesk"
+          className="flex-1 rounded-lg bg-background px-3 py-2 text-sm outline-none focus-visible:ring-2 focus-visible:ring-primary"
         />
         <button
           onClick={send}
