@@ -20,7 +20,7 @@ export function SiteHeader() {
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6">
         <Link href="/" className="flex items-center gap-2 font-bold text-lg">
           <span className="flex size-9 items-center justify-center rounded-xl bg-primary text-primary-foreground">
-            <GraduationCap size={20} />
+            <GraduationCap size={20} aria-hidden="true" />
           </span>
           אקדמיית AI
         </Link>

@@ -83,14 +83,14 @@ export function LessonShell({
           </div>
           <div className="mt-3 flex flex-wrap gap-4 text-sm text-muted">
             <span className="flex items-center gap-1.5">
-              <Clock size={15} /> {meta.estMinutes} דקות
+              <Clock size={15} aria-hidden="true" /> {meta.estMinutes} דקות
             </span>
             <span className="flex items-center gap-1.5">
-              <BarChart3 size={15} /> רמת קושי: {meta.difficulty}
+              <BarChart3 size={15} aria-hidden="true" /> רמת קושי: {meta.difficulty}
             </span>
             {meta.prerequisites.length > 0 && (
               <span className="flex items-center gap-1.5">
-                <ListChecks size={15} /> דרישות קדם: {meta.prerequisites.join(", ")}
+                <ListChecks size={15} aria-hidden="true" /> דרישות קדם: {meta.prerequisites.join(", ")}
               </span>
             )}
           </div>

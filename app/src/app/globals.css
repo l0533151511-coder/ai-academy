@@ -6,7 +6,7 @@
   --card: #ffffff;
   --card-foreground: #10131a;
   --border: #e4e7ec;
-  --muted: #6b7280;
+  --muted: #5b6270; /* כהה מספיק ל-WCAG AA (~5.2:1) על רקע בהיר */
   --primary: #5b5bf6;
   --primary-foreground: #ffffff;
   --accent: #22d3ee;
@@ -50,6 +50,20 @@
 
 * {
   border-color: var(--border);
+}
+
+/* מיקוד מקלדת נראה בכל אלמנט אינטראקטיבי — קריטי לנגישות keyboard/screen-reader.
+   focus-visible מציג את הטבעת רק בניווט מקלדת, לא בלחיצת עכבר. */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible,
+[tabindex]:focus-visible,
+[role="button"]:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+  border-radius: 6px;
 }
 
 body {

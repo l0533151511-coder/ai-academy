@@ -30,7 +30,14 @@ export function TrackModuleList({ track }: { track: TrackSummary }) {
               {trackCompletedCount}/{builtLessons.length} שיעורים ({trackPct}%)
             </span>
           </div>
-          <div className="mt-2 h-2 overflow-hidden rounded-full bg-background">
+          <div
+            className="mt-2 h-2 overflow-hidden rounded-full bg-background"
+            role="progressbar"
+            aria-valuenow={trackPct}
+            aria-valuemin={0}
+            aria-valuemax={100}
+            aria-label={`התקדמות במסלול: ${trackPct}%`}
+          >
             <div
               className="h-full rounded-full bg-success transition-all"
               style={{ width: `${trackPct}%` }}

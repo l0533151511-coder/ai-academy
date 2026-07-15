@@ -43,8 +43,9 @@ export default function LoginPage() {
       <h1 className="text-2xl font-extrabold">התחברות</h1>
       <form onSubmit={handleSubmit} className="mt-8 space-y-4">
         <div>
-          <label className="mb-1 block text-sm font-medium">אימייל</label>
+          <label htmlFor="login-email" className="mb-1 block text-sm font-medium">אימייל</label>
           <input
+            id="login-email"
             type="email"
             required
             value={email}
@@ -53,8 +54,9 @@ export default function LoginPage() {
           />
         </div>
         <div>
-          <label className="mb-1 block text-sm font-medium">סיסמה</label>
+          <label htmlFor="login-password" className="mb-1 block text-sm font-medium">סיסמה</label>
           <input
+            id="login-password"
             type="password"
             required
             value={password}
@@ -62,7 +64,7 @@ export default function LoginPage() {
             className="w-full rounded-lg border border-border bg-card px-3 py-2"
           />
         </div>
-        {error && <p className="text-sm text-danger">{error}</p>}
+        {error && <p role="alert" className="text-sm text-danger">{error}</p>}
         <button
           type="submit"
           disabled={loading}

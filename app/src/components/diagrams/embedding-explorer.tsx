@@ -51,7 +51,13 @@ export function EmbeddingExplorer() {
         לחץ על שתי מילים כדי לראות את ה-similarity (קרבה סמנטית מדומה) ביניהן. שים לב: מילים
         מאותה קטגוריה נמצאות קרובות זו לזו במרחב — בדיוק כמו embeddings אמיתיים.
       </p>
-      <svg viewBox="0 0 100 100" className="w-full rounded-xl bg-background" style={{ height: 260 }}>
+      <svg
+        viewBox="0 0 100 100"
+        className="w-full rounded-xl bg-background"
+        style={{ height: 260 }}
+        role="img"
+        aria-label="מפת embeddings: מילים ממופות כנקודות במרחב דו-ממדי, כאשר מילים דומות במשמעות (מאותה קטגוריה) קרובות זו לזו"
+      >
         <line
           x1={a.x}
           y1={a.y}

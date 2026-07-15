@@ -62,8 +62,9 @@ export default function SignupPage() {
       <h1 className="text-2xl font-extrabold">יצירת חשבון</h1>
       <form onSubmit={handleSubmit} className="mt-8 space-y-4">
         <div>
-          <label className="mb-1 block text-sm font-medium">שם מלא</label>
+          <label htmlFor="signup-fullname" className="mb-1 block text-sm font-medium">שם מלא</label>
           <input
+            id="signup-fullname"
             type="text"
             required
             value={fullName}
@@ -72,8 +73,9 @@ export default function SignupPage() {
           />
         </div>
         <div>
-          <label className="mb-1 block text-sm font-medium">אימייל</label>
+          <label htmlFor="signup-email" className="mb-1 block text-sm font-medium">אימייל</label>
           <input
+            id="signup-email"
             type="email"
             required
             value={email}
@@ -82,8 +84,9 @@ export default function SignupPage() {
           />
         </div>
         <div>
-          <label className="mb-1 block text-sm font-medium">סיסמה</label>
+          <label htmlFor="signup-password" className="mb-1 block text-sm font-medium">סיסמה</label>
           <input
+            id="signup-password"
             type="password"
             required
             minLength={6}
@@ -92,7 +95,7 @@ export default function SignupPage() {
             className="w-full rounded-lg border border-border bg-card px-3 py-2"
           />
         </div>
-        {error && <p className="text-sm text-danger">{error}</p>}
+        {error && <p role="alert" className="text-sm text-danger">{error}</p>}
         <button
           type="submit"
           disabled={loading}

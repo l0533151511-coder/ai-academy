@@ -63,7 +63,12 @@ export function ContextWindowVisualizer({ windowLimit = 300 }: { windowLimit?: n
         )}
       </div>
 
-      <div className="mb-4 h-6 overflow-hidden rounded-full bg-background" style={{ direction: "ltr" }}>
+      <div
+        className="mb-4 h-6 overflow-hidden rounded-full bg-background"
+        style={{ direction: "ltr" }}
+        role="img"
+        aria-label={`מד תפוסת חלון ההקשר: ${totalTokens} מתוך ${windowLimit} טוקנים בשימוש, כל קטע צבע מייצג הודעה${overflow ? " — חריגה מהמגבלה" : ""}`}
+      >
         <div className="flex h-full">
           {messages.map((m) => (
             <div

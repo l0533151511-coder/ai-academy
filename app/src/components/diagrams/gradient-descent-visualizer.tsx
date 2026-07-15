@@ -59,7 +59,14 @@ export function GradientDescentVisualizer() {
         &quot;צעד&quot; זז נגד כיוון הגרדיאנט (השיפוע) בקצב שקובע ה-learning rate. נסה learning rate
         גבוה מדי וראה מה קורה (רמז: הכדור &quot;קופץ&quot; במקום לרדת בעדינות).
       </p>
-      <svg viewBox={`0 0 ${WIDTH} ${HEIGHT}`} width="100%" height={HEIGHT} style={{ direction: "ltr" }}>
+      <svg
+        viewBox={`0 0 ${WIDTH} ${HEIGHT}`}
+        width="100%"
+        height={HEIGHT}
+        style={{ direction: "ltr" }}
+        role="img"
+        aria-label="גרף גרדיאנט descent: עקומת שגיאה (loss) עם כדור היורד לכיוון המינימום צעד אחר צעד לפי קצב הלמידה"
+      >
         <polyline points={curvePoints} fill="none" stroke="var(--border)" strokeWidth={2} />
         {history.map((h, i) => (
           <circle key={i} cx={toScreenX(h)} cy={toScreenY(loss(h))} r={3} fill="var(--muted)" opacity={0.4} />

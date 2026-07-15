@@ -97,6 +97,9 @@ export function GlobalSearch() {
           <div
             className="w-full max-w-xl overflow-hidden rounded-2xl border border-border bg-card shadow-2xl"
             onClick={(e) => e.stopPropagation()}
+            role="dialog"
+            aria-modal="true"
+            aria-label="חיפוש"
           >
             <div className="flex items-center gap-2 border-b border-border px-4 py-3">
               <Search size={18} className="text-muted" />
@@ -105,13 +108,14 @@ export function GlobalSearch() {
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
                 placeholder="חפש שיעור, מודול, או מסלול..."
+                aria-label="חיפוש"
                 className="flex-1 bg-transparent outline-none"
               />
               <button onClick={() => setOpen(false)} aria-label="סגור חיפוש">
                 <X size={16} className="text-muted" />
               </button>
             </div>
-            <div className="max-h-80 overflow-y-auto p-2">
+            <div className="max-h-80 overflow-y-auto p-2" role="listbox" aria-label="תוצאות חיפוש" aria-live="polite">
               {query.trim() && results.length === 0 && (
                 <p className="p-4 text-center text-sm text-muted">לא נמצאו תוצאות</p>
               )}
@@ -119,6 +123,8 @@ export function GlobalSearch() {
                 <button
                   key={r.href}
                   onClick={() => go(r.href)}
+                  role="option"
+                  aria-selected={false}
                   className="flex w-full items-center gap-3 rounded-lg px-3 py-2 text-right text-sm hover:bg-background"
                 >
                   <BookOpen size={15} className="shrink-0 text-primary" />

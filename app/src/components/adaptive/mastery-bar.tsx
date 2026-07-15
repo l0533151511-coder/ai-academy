@@ -30,7 +30,14 @@ export function MasteryBar({
           {STATUS_LABEL[mastery.status]}
         </span>
       </div>
-      <div className="mt-2 h-2 overflow-hidden rounded-full bg-background">
+      <div
+        className="mt-2 h-2 overflow-hidden rounded-full bg-background"
+        role="progressbar"
+        aria-valuenow={pct}
+        aria-valuemin={0}
+        aria-valuemax={100}
+        aria-label={`שליטה ב${title}: ${pct}%`}
+      >
         <div
           className={cn("h-full rounded-full transition-all", STATUS_BAR[mastery.status])}
           style={{ width: `${pct}%` }}

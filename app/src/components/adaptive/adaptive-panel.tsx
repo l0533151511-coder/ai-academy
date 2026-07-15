@@ -24,7 +24,7 @@ export function AdaptivePanel() {
     return (
       <div className="mt-10 rounded-2xl border border-border bg-card p-6 text-sm text-muted">
         <div className="mb-1 flex items-center gap-2 font-bold text-foreground">
-          <Compass size={18} className="text-primary" /> המסלול המותאם אישית שלך
+          <Compass size={18} className="text-primary" aria-hidden="true" /> המסלול המותאם אישית שלך
         </div>
         השלם את השיעור הראשון שלך — ומכאן המערכת תתחיל להתאים לך המלצות למידה, לזהות חולשות,
         ולתזמן חזרות אישיות.
@@ -37,7 +37,7 @@ export function AdaptivePanel() {
   return (
     <div className="mt-10 space-y-6">
       <div className="flex items-center gap-2">
-        <Compass size={20} className="text-primary" />
+        <Compass size={20} className="text-primary" aria-hidden="true" />
         <h2 className="text-xl font-bold">המסלול המותאם אישית שלך</h2>
       </div>
 
@@ -57,7 +57,7 @@ export function AdaptivePanel() {
       {recommendations.length > 0 && (
         <section>
           <h3 className="mb-3 flex items-center gap-2 text-sm font-bold">
-            <Sparkles size={16} className="text-primary" /> הצעד הבא המומלץ עבורך
+            <Sparkles size={16} className="text-primary" aria-hidden="true" /> הצעד הבא המומלץ עבורך
           </h3>
           <div className="space-y-2">
             {recommendations.map((rec) => (
@@ -83,7 +83,7 @@ export function AdaptivePanel() {
       {reviews.length > 0 && (
         <section>
           <h3 className="mb-3 flex items-center gap-2 text-sm font-bold">
-            <RotateCcw size={16} className="text-danger" /> זמן לרענן — חזרה מרווחת
+            <RotateCcw size={16} className="text-danger" aria-hidden="true" /> זמן לרענן — חזרה מרווחת
           </h3>
           <div className="space-y-2">
             {reviews.slice(0, 5).map((r) => (
@@ -112,7 +112,7 @@ export function AdaptivePanel() {
       {weaknesses.length > 0 && (
         <section>
           <h3 className="mb-3 flex items-center gap-2 text-sm font-bold">
-            <AlertTriangle size={16} className="text-warning" /> כדאי לחזק
+            <AlertTriangle size={16} className="text-warning" aria-hidden="true" /> כדאי לחזק
           </h3>
           <div className="space-y-2">
             {weaknesses.map((w) => (
@@ -160,7 +160,7 @@ function Stat({
   return (
     <div className="rounded-xl border border-border bg-card p-3">
       <div className="flex items-center gap-1.5 text-[11px] text-muted">
-        <Icon size={13} /> {label}
+        <Icon size={13} aria-hidden="true" /> {label}
       </div>
       <div className="mt-1 text-lg font-extrabold">{value}</div>
     </div>

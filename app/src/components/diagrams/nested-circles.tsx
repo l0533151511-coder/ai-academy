@@ -16,7 +16,7 @@ export function NestedCircles({ levels }: { levels: CircleLevel[] }) {
   return (
     <div className="rounded-2xl border border-border bg-card p-6">
       <div className="flex justify-center">
-        <svg viewBox="0 0 320 320" width="280" height="280">
+        <svg viewBox="0 0 320 320" width="280" height="280" role="img" aria-label="מעגלים מקוננים — בחר רמה">
           {levels.map((level, i) => {
             const radius = ((n - i) / n) * 150;
             return (
@@ -29,7 +29,16 @@ export function NestedCircles({ levels }: { levels: CircleLevel[] }) {
                 stroke={level.color}
                 strokeWidth={active === i ? 3 : 1.5}
                 className="cursor-pointer"
+                tabIndex={0}
+                role="button"
+                aria-label={level.label}
                 onClick={() => setActive(i)}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter" || e.key === " ") {
+                    e.preventDefault();
+                    setActive(i);
+                  }
+                }}
                 animate={{ opacity: 1 }}
                 initial={{ opacity: 0 }}
                 transition={{ delay: i * 0.1 }}
@@ -48,7 +57,16 @@ export function NestedCircles({ levels }: { levels: CircleLevel[] }) {
                 fontWeight="bold"
                 fill={level.color}
                 className="cursor-pointer select-none"
+                tabIndex={0}
+                role="button"
+                aria-label={level.label}
                 onClick={() => setActive(i)}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter" || e.key === " ") {
+                    e.preventDefault();
+                    setActive(i);
+                  }
+                }}
               >
                 {level.label}
               </text>

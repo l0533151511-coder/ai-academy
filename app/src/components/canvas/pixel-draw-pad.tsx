@@ -27,20 +27,38 @@ export function PixelDrawPad({ gridSize = 8, cellPx = 28, value, onChange }: Pix
   return (
     <div>
       <div
+        role="group"
+        aria-label="לוח ציור — צייר ספרה"
         className="inline-block select-none rounded-lg border border-border bg-background p-1"
         onMouseLeave={() => setDrawing(false)}
         onMouseUp={() => setDrawing(false)}
+        onPointerUp={() => setDrawing(false)}
+        onPointerLeave={() => setDrawing(false)}
       >
         {value.map((row, r) => (
           <div key={r} className="flex">
             {row.map((cell, c) => (
               <div
                 key={c}
+                role="button"
+                tabIndex={0}
+                aria-pressed={!!cell}
                 onMouseDown={() => {
                   setDrawing(true);
                   setCell(r, c, 1);
                 }}
                 onMouseEnter={() => drawing && setCell(r, c, 1)}
+                onPointerDown={() => {
+                  setDrawing(true);
+                  setCell(r, c, 1);
+                }}
+                onPointerEnter={() => drawing && setCell(r, c, 1)}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter" || e.key === " ") {
+                    if (e.key === " ") e.preventDefault();
+                    setCell(r, c, cell ? 0 : 1);
+                  }
+                }}
                 style={{
                   width: cellPx,
                   height: cellPx,

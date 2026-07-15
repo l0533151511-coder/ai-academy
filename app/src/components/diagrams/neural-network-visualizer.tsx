@@ -75,7 +75,14 @@ export function NeuralNetworkVisualizer({ layers, layerLabels }: NeuralNetworkVi
         ))}
       </div>
 
-      <svg viewBox={`0 0 ${width} ${height}`} width="100%" height={height} style={{ direction: "ltr" }}>
+      <svg
+        viewBox={`0 0 ${width} ${height}`}
+        width="100%"
+        height={height}
+        style={{ direction: "ltr" }}
+        role="img"
+        aria-label="דיאגרמת רשת נוירונים: שכבות של נוירונים מחוברים בקווים, עוצמת הצבע של כל נוירון מייצגת את ערך ההפעלה שלו ב-forward pass"
+      >
         {layers.slice(0, -1).map((count, l) =>
           Array.from({ length: count }).map((_, n) =>
             Array.from({ length: layers[l + 1] }).map((_, m) => (

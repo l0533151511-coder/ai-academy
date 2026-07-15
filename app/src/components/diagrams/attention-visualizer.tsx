@@ -38,7 +38,11 @@ export function AttentionVisualizer({ sentence }: { sentence: string }) {
           </button>
         ))}
       </div>
-      <div className="space-y-1.5">
+      <div
+        className="space-y-1.5"
+        role="img"
+        aria-label={`מפת תשומת לב (attention): כל שורה מציגה כמה תשומת לב המילה "${words[focus]}" נותנת למילה אחרת במשפט, פס ארוך יותר משמעו משקל גבוה יותר`}
+      >
         {words.map((w, i) => {
           const weight = i === focus ? 1 : pseudoWeight(words[focus], w);
           return (

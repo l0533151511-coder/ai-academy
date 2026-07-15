@@ -63,7 +63,7 @@ export function QuizEngine({ questions }: { questions: QuizQuestion[] }) {
             <p className="font-semibold">
               {qi + 1}. {q.question}
             </p>
-            <div className="mt-3 space-y-2">
+            <div className="mt-3 space-y-2" role="radiogroup" aria-label={q.question}>
               {order.map((oi) => {
                 const opt = q.options[oi];
                 const isChosen = chosen === oi;
@@ -74,6 +74,8 @@ export function QuizEngine({ questions }: { questions: QuizQuestion[] }) {
                 return (
                   <div key={oi}>
                     <button
+                      role="radio"
+                      aria-checked={chosen === oi}
                       disabled={submitted}
                       onClick={() => setAnswers((a) => ({ ...a, [q.id]: oi }))}
                       className={cn(
@@ -85,8 +87,18 @@ export function QuizEngine({ questions }: { questions: QuizQuestion[] }) {
                       )}
                     >
                       {opt}
-                      {isCorrect && <CheckCircle2 size={16} />}
-                      {isWrongChoice && <XCircle size={16} />}
+                      {isCorrect && (
+                        <>
+                          <span className="sr-only">תשובה נכונה</span>
+                          <CheckCircle2 size={16} />
+                        </>
+                      )}
+                      {isWrongChoice && (
+                        <>
+                          <span className="sr-only">תשובה שגויה</span>
+                          <XCircle size={16} />
+                        </>
+                      )}
                     </button>
                     {submitted && note && (isChosen || isCorrectOption) && (
                       <p
@@ -121,7 +133,7 @@ export function QuizEngine({ questions }: { questions: QuizQuestion[] }) {
           שלח בוחן
         </button>
       ) : (
-        <div className="rounded-xl bg-primary/10 px-4 py-3 font-semibold text-primary">
+        <div role="status" className="rounded-xl bg-primary/10 px-4 py-3 font-semibold text-primary">
           התוצאה שלך: {score}/{questions.length}
         </div>
       )}
