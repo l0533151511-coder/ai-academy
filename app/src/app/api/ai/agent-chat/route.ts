@@ -34,7 +34,13 @@ function toolCallSignature(name: string, input: Record<string, unknown>): string
 
 export async function POST(req: NextRequest) {
   const apiKey = process.env.ANTHROPIC_API_KEY;
-  const { messages } = (await req.json()) as { messages: ChatMessage[] };
+  let messages: ChatMessage[];
+  try {
+    const body = (await req.json()) as { messages: ChatMessage[] };
+    messages = body.messages;
+  } catch {
+    return NextResponse.json({ error: "invalid json" }, { status: 400 });
+  }
 
   if (!apiKey) {
     return missingApiKeyResponse(

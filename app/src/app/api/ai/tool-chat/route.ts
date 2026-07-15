@@ -26,7 +26,15 @@ interface ToolLogEntry {
 
 export async function POST(req: NextRequest) {
   const apiKey = process.env.ANTHROPIC_API_KEY;
-  const { system, messages } = (await req.json()) as { system?: string; messages: ChatMessage[] };
+  let system: string | undefined;
+  let messages: ChatMessage[];
+  try {
+    const body = (await req.json()) as { system?: string; messages: ChatMessage[] };
+    system = body.system;
+    messages = body.messages;
+  } catch {
+    return NextResponse.json({ error: "invalid json" }, { status: 400 });
+  }
 
   if (!apiKey) {
     return missingApiKeyResponse(

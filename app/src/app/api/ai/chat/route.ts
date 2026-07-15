@@ -18,11 +18,17 @@ interface ChatMessage {
 
 export async function POST(req: NextRequest) {
   const apiKey = process.env.ANTHROPIC_API_KEY;
-  const { system, messages, maxTokens = 1024 } = (await req.json()) as {
-    system?: string;
-    messages: ChatMessage[];
-    maxTokens?: number;
-  };
+  let system: string | undefined;
+  let messages: ChatMessage[];
+  let maxTokens = 1024;
+  try {
+    const body = (await req.json()) as { system?: string; messages: ChatMessage[]; maxTokens?: number };
+    system = body.system;
+    messages = body.messages;
+    maxTokens = body.maxTokens ?? 1024;
+  } catch {
+    return NextResponse.json({ error: "invalid json" }, { status: 400 });
+  }
 
   if (!apiKey) {
     return missingApiKeyResponse(

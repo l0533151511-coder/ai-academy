@@ -14,7 +14,13 @@ export const runtime = "nodejs";
 
 export async function POST(req: NextRequest) {
   const apiKey = process.env.OPENAI_API_KEY;
-  const { query } = (await req.json()) as { query: string };
+  let query: string;
+  try {
+    const body = (await req.json()) as { query: string };
+    query = body.query;
+  } catch {
+    return NextResponse.json({ error: "invalid json" }, { status: 400 });
+  }
 
   if (!apiKey) {
     return NextResponse.json(
